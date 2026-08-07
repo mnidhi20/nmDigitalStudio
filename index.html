@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nidhi Matele — Flutter Developer, Web Developer & AI Solutions</title>
+<meta name="description" content="Flutter Developer • Web Developer • AI Solutions. I help businesses build beautiful websites and mobile apps. 10+ live projects including apps on the App Store & Google Play and books on Amazon." />
+<meta property="og:title" content="Nidhi — Websites, Apps & Learning Content" />
+<meta property="og:description" content="Freelance builder of websites, mobile apps, and educational content. See live work and get in touch." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f6f7fb;
+    --bg-card: #ffffff;
+    --text: #16181d;
+    --text-soft: #565b66;
+    --border: #e7e9f0;
+    --accent: #6d4aff;
+    --accent-2: #ff7a59;
+    --accent-soft: #efeaff;
+    --shadow: 0 10px 40px rgba(28, 20, 70, 0.08);
+    --shadow-hover: 0 20px 60px rgba(28, 20, 70, 0.16);
+    --radius: 18px;
+  }
+  html[data-theme="dark"] {
+    --bg: #0f1117;
+    --bg-soft: #151824;
+    --bg-card: #171a24;
+    --text: #f2f3f7;
+    --text-soft: #a1a7b6;
+    --border: #262a38;
+    --accent: #9b82ff;
+    --accent-2: #ff8f70;
+    --accent-soft: #21203a;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.55);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .4s ease, color .4s ease;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.15; letter-spacing: -0.01em; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(180%) blur(12px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+  .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { font-size: 15px; color: var(--text-soft); font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .theme-btn {
+    border: 1px solid var(--border); background: var(--bg-card); color: var(--text);
+    width: 40px; height: 40px; border-radius: 12px; cursor: pointer; font-size: 17px;
+    display: grid; place-items: center; transition: transform .2s, background .3s;
+  }
+  .theme-btn:hover { transform: rotate(-12deg) scale(1.05); }
+  @media (max-width: 680px) { .nav-links a:not(.btn-nav) { display: none; } }
+
+  /* HERO */
+  .hero { padding: 84px 0 60px; position: relative; overflow: hidden; }
+  .hero:before {
+    content: ""; position: absolute; top: -120px; right: -80px; width: 420px; height: 420px;
+    background: radial-gradient(circle, var(--accent-soft), transparent 68%); z-index: 0;
+  }
+  .hero-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr .85fr; gap: 44px; align-items: center; }
+  @media (max-width: 940px) { .hero-wrap { grid-template-columns: 1fr; gap: 28px; } .hero-photo { order: -1; max-width: 300px; } }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-photo { position: relative; }
+  .hero-photo:before {
+    content: ""; position: absolute; inset: -6%; border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-soft), transparent 68%);
+    animation: floaty 7s ease-in-out infinite;
+  }
+  .hero-photo img {
+    position: relative; width: 100%; height: auto; display: block; border-radius: 50%;
+    border: 5px solid var(--bg-card); box-shadow: 0 24px 60px rgba(28,20,70,.22);
+    animation: floaty 7s ease-in-out infinite;
+  }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+  @media (prefers-reduced-motion: reduce) { .hero-photo img, .hero-photo:before { animation: none; } }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft); padding: 7px 14px; border-radius: 100px; margin-bottom: 22px;
+  }
+  .pill .live { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0 rgba(34,197,94,.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)} 70%{box-shadow:0 0 0 8px rgba(34,197,94,0)} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0)} }
+  .hero h1 { font-size: clamp(38px, 6vw, 62px); font-weight: 700; margin-bottom: 20px; }
+  .hero h1 .grad { background: linear-gradient(120deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: clamp(17px, 2.4vw, 20px); color: var(--text-soft); margin-bottom: 32px; max-width: 620px; }
+
+  /* Animated roles tagline */
+  .roles { margin: 4px 0 26px; }
+  .roles-line { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(18px, 2.6vw, 24px); }
+  .role-item {
+    background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 30%, var(--accent) 60%, var(--accent-2) 90%);
+    background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 5s linear infinite, popin .6s ease both;
+  }
+  .role-item:nth-child(1) { animation-delay: 0s, .15s; }
+  .role-item:nth-child(3) { animation-delay: -1.6s, .35s; }
+  .role-item:nth-child(5) { animation-delay: -3.2s, .55s; }
+  .role-sep { color: var(--accent); opacity: .5; animation: popin .6s ease both; }
+  .role-sep:nth-child(2) { animation-delay: .25s; }
+  .role-sep:nth-child(4) { animation-delay: .45s; }
+  .roles-sub { margin-top: 8px; font-size: clamp(15px, 2vw, 17px); color: var(--text-soft); font-weight: 500; animation: popin .6s ease .7s both; }
+  @keyframes shimmer { to { background-position: 220% center; } }
+  @keyframes popin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .role-item, .role-sep, .roles-sub { animation: none !important; }
+    .role-item { -webkit-text-fill-color: initial; color: var(--accent); }
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 15.5px;
+    padding: 13px 24px; border-radius: 12px; cursor: pointer; border: 1px solid transparent; transition: transform .2s, box-shadow .3s, background .3s;
+  }
+  .btn-primary { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff; box-shadow: var(--shadow); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .btn-ghost { background: var(--bg-card); color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .btn-wa { background: #25d366; color: #fff; }
+  .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,.35); }
+  .stats { display: flex; gap: 36px; margin-top: 46px; flex-wrap: wrap; }
+  .stat b { font-family: 'Fraunces', serif; font-size: 30px; display: block; }
+  .stat span { font-size: 14px; color: var(--text-soft); }
+
+  /* SECTION */
+  section { padding: 68px 0; }
+  .sec-head { max-width: 620px; margin-bottom: 44px; }
+  .sec-tag { font-size: 13.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .sec-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin: 12px 0 12px; }
+  .sec-head p { color: var(--text-soft); font-size: 17px; }
+
+  /* SERVICES */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 820px) { .services { grid-template-columns: 1fr; } }
+  .svc {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 30px 26px; box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .svc:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+  .svc .ic { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; font-size: 26px; background: var(--accent-soft); margin-bottom: 18px; }
+  .svc h3 { font-size: 21px; margin-bottom: 10px; }
+  .svc p { color: var(--text-soft); font-size: 15px; }
+  .svc ul { list-style: none; margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .svc ul li { font-size: 12.5px; font-weight: 600; color: var(--text-soft); background: var(--bg-soft); border: 1px solid var(--border); padding: 5px 11px; border-radius: 100px; }
+
+  /* PROJECTS */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+  @media (max-width: 820px) { .projects { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+  .preview { position: relative; aspect-ratio: 16 / 10.5; background: var(--bg-soft); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .browser-bar { height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: var(--bg-soft); border-bottom: 1px solid var(--border); }
+  .browser-bar i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .browser-bar .u { margin-left: 10px; font-size: 11.5px; color: var(--text-soft); font-family: monospace; }
+  .frame-holder { position: relative; height: calc(100% - 34px); }
+  .frame-poster {
+    position: absolute; inset: 0; z-index: 0; display: grid; place-items: center; text-align: center; padding: 20px;
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-card));
+  }
+  .frame-poster .pname { font-family: 'Fraunces', serif; font-weight: 700; font-size: 26px; color: var(--text); }
+  .frame-poster .psub { font-size: 13px; color: var(--text-soft); margin-top: 4px; }
+  .frame-holder iframe { position: relative; z-index: 1; width: 200%; height: 200%; border: 0; transform: scale(0.5); transform-origin: 0 0; background: #fff; }
+  .frame-overlay { position: absolute; inset: 0; cursor: pointer; z-index: 2; }
+  .frame-overlay .open-hint {
+    position: absolute; right: 12px; bottom: 12px; background: var(--accent); color: #fff; font-size: 12.5px; font-weight: 600;
+    padding: 7px 13px; border-radius: 100px; opacity: 0; transform: translateY(6px); transition: .25s; box-shadow: var(--shadow);
+  }
+  .card:hover .open-hint { opacity: 1; transform: translateY(0); }
+  .card-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+  .card-body .kicker { font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-2); }
+  .card-body h3 { font-size: 22px; margin: 7px 0 9px; }
+  .card-body p { color: var(--text-soft); font-size: 15px; margin-bottom: 16px; }
+  .stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+  .stack span { font-size: 12px; font-weight: 600; color: var(--text-soft); background: var(--bg-soft); border: 1px solid var(--border); padding: 4px 10px; border-radius: 8px; }
+  .card-links { margin-top: auto; display: flex; gap: 16px; }
+  .card-links a { font-size: 14.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+  .card-links a:hover { text-decoration: underline; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 44px; align-items: start; }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .about-copy h2 { font-size: clamp(28px, 4vw, 40px); margin: 12px 0 18px; }
+  .about-copy p { color: var(--text-soft); font-size: 16.5px; margin-bottom: 15px; }
+  .about-copy strong { color: var(--text); font-weight: 600; }
+  .about-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .about-side { display: grid; gap: 14px; }
+  .hl-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 15px; padding: 20px 20px; box-shadow: var(--shadow); transition: transform .3s, border-color .3s; }
+  .hl-card:hover { transform: translateX(5px); border-color: var(--accent); }
+  .hl-ic { font-size: 24px; margin-bottom: 8px; }
+  .hl-card h4 { font-family: 'Fraunces', serif; font-size: 17.5px; margin-bottom: 6px; }
+  .hl-card p { font-size: 14.5px; color: var(--text-soft); }
+  .hl-card strong { color: var(--text); font-weight: 600; }
+
+  /* AI SPOTLIGHT */
+  .spotlight {
+    margin-top: 24px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 34px;
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-card));
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 34px 32px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .spotlight:before {
+    content: ""; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(255,122,89,.18), transparent 70%); pointer-events: none;
+  }
+  @media (max-width: 880px) { .spotlight { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; } }
+  .spot-tag {
+    display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: #fff; background: linear-gradient(120deg, var(--accent), var(--accent-2));
+    padding: 5px 12px; border-radius: 100px; margin-bottom: 14px;
+  }
+  .spot-left h3 { font-size: clamp(22px, 3vw, 29px); margin-bottom: 12px; }
+  .spot-left p { color: var(--text-soft); font-size: 15.5px; margin-bottom: 12px; }
+  .spot-right { display: grid; gap: 12px; align-content: start; position: relative; z-index: 1; }
+  .spot-item { display: flex; gap: 13px; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border); border-radius: 13px; padding: 13px 15px; transition: transform .25s, border-color .25s; }
+  .spot-item:hover { transform: translateX(5px); border-color: var(--accent); }
+  .spot-item > span { font-size: 20px; line-height: 1.2; }
+  .spot-item b { display: block; font-size: 14.5px; margin-bottom: 2px; }
+  .spot-item p { font-size: 13px; color: var(--text-soft); }
+
+  /* TABS */
+  .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+  .tab {
+    font-family: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer;
+    padding: 10px 18px; border-radius: 100px; border: 1px solid var(--border);
+    background: var(--bg-card); color: var(--text-soft); transition: all .25s;
+  }
+  .tab:hover { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
+  .tab.active { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; box-shadow: var(--shadow); }
+  .card.hide { display: none; }
+  .card.filtering { animation: popin .45s ease both; }
+
+  /* APP PREVIEW */
+  .app-preview, .book-preview { display: grid; place-items: center; position: relative; background: linear-gradient(150deg, var(--accent-soft), var(--bg-card)); }
+  .live-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 3; font-size: 11.5px; font-weight: 700;
+    letter-spacing: .03em; background: #22c55e; color: #fff; padding: 5px 11px; border-radius: 100px;
+  }
+  .live-badge.soon-badge { background: var(--accent); }
+  .phone {
+    width: 148px; aspect-ratio: 9/17; background: #101018; border-radius: 22px; padding: 7px;
+    box-shadow: 0 18px 44px rgba(20,12,60,.3); transition: transform .45s ease;
+  }
+  .card:hover .phone { transform: translateY(-8px) rotate(-2deg); }
+  .phone-screen {
+    width: 100%; height: 100%; border-radius: 16px; background: linear-gradient(160deg, #fff, #f2f0ff);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; text-align: center; padding: 10px;
+  }
+  .app-icon { font-size: 34px; }
+  .app-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 15px; color: #16181d; }
+  .app-meta { font-size: 10px; color: #6b7180; line-height: 1.35; }
+  .app-stars { font-size: 11px; color: #f5a623; margin-top: 3px; font-weight: 700; }
+  .app-stars span { color: #6b7180; }
+  .app-preview.soon .phone-screen { background: linear-gradient(160deg, #f4f1ff, #e8e4ff); }
+
+  /* IMAGE (SCREENSHOT / COVER) PREVIEW */
+  /* Taller frame for covers/screenshots so the whole artwork fits */
+  .preview.shot-preview { aspect-ratio: 4 / 5; }
+  .shot-preview {
+    background: linear-gradient(150deg, var(--accent-soft), var(--bg-card));
+    display: grid; place-items: center; padding: 16px; perspective: 1100px;
+  }
+  .shot-preview a { display: grid; place-items: center; width: 100%; height: 100%; }
+  .shot-preview img {
+    max-width: 100%; max-height: 100%; width: auto; height: auto;
+    object-fit: contain; display: block;
+    transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  }
+  .card:hover .shot-preview img { transform: translateY(-6px) scale(1.03); }
+  /* Book covers get a subtle 3D tilt + spine */
+  .book-shot { background: #fbfbfd; }
+  html[data-theme="dark"] .book-shot { background: #f4f4f8; }
+  .book-shot img {
+    border-radius: 3px 7px 7px 3px;
+    box-shadow: 0 16px 38px rgba(20,12,60,.26), inset 6px 0 0 rgba(0,0,0,.10);
+    transform: rotateY(-8deg); transform-origin: left center;
+  }
+  .card:hover .book-shot img { transform: rotateY(0deg) translateY(-6px) scale(1.02); }
+
+  /* BOOK PREVIEW */
+  .book { perspective: 900px; }
+  .book-cover {
+    width: 152px; aspect-ratio: 3/4; border-radius: 4px 10px 10px 4px;
+    background: linear-gradient(150deg, var(--b1), var(--b2));
+    box-shadow: 0 18px 40px rgba(20,12,60,.3), inset 7px 0 0 rgba(0,0,0,.14);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; padding: 16px 14px 16px 22px; text-align: center; color: #fff;
+    transform: rotateY(-11deg); transition: transform .45s ease;
+  }
+  .card:hover .book-cover { transform: rotateY(0deg) translateY(-7px); }
+  .book-emoji { font-size: 34px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.2)); }
+  .book-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 15.5px; line-height: 1.2; text-shadow: 0 1px 3px rgba(0,0,0,.25); }
+  .book-sub { font-size: 11px; opacity: .95; font-weight: 600; }
+
+  .card-body .award {
+    font-size: 13px; color: var(--text); background: var(--accent-soft);
+    border-left: 3px solid var(--accent); padding: 9px 12px; border-radius: 8px; margin-bottom: 15px;
+  }
+
+  /* PROCESS */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr 1fr; } }
+  .step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow); }
+  .step b { font-family: 'Fraunces', serif; font-size: 26px; color: var(--accent); display: block; margin-bottom: 8px; }
+  .step h4 { font-size: 16.5px; margin-bottom: 6px; }
+  .step p { font-size: 13.5px; color: var(--text-soft); }
+
+  /* RECOGNITION */
+  .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 880px) { .rec-grid { grid-template-columns: 1fr; } }
+  .rec-quote { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 28px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .rec-quote:before { content: "”"; position: absolute; top: -26px; right: 10px; font-family: 'Fraunces', serif; font-size: 150px; color: var(--accent); opacity: .1; }
+  .rating-row { display: flex; align-items: baseline; gap: 9px; margin-bottom: 16px; flex-wrap: wrap; }
+  .stars { color: #f5a623; font-size: 20px; letter-spacing: 2px; }
+  .rating-row b { font-family: 'Fraunces', serif; font-size: 24px; }
+  .rating-src { font-size: 13.5px; color: var(--text-soft); }
+  .rec-quote blockquote { font-size: 16px; line-height: 1.65; color: var(--text); position: relative; z-index: 1; }
+  .rec-quote cite { display: block; margin-top: 14px; font-size: 13.5px; color: var(--text-soft); font-style: normal; font-weight: 600; }
+  .rec-link { display: inline-block; margin-top: 16px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
+  .rec-link:hover { text-decoration: underline; }
+  .rec-list { display: grid; gap: 12px; }
+  .rec-item { display: flex; gap: 14px; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); transition: transform .25s, border-color .25s; }
+  .rec-item:hover { transform: translateX(5px); border-color: var(--accent); }
+  .rec-ic { font-size: 22px; line-height: 1.2; }
+  .rec-item b { display: block; font-size: 15px; margin-bottom: 3px; }
+  .rec-item p { font-size: 13.5px; color: var(--text-soft); }
+  .rec-group-label { font-size: 12.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--text-soft); padding-left: 2px; }
+  .rec-note { font-size: 13.5px; color: var(--text-soft); font-style: italic; line-height: 1.6; padding: 4px 2px 0; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 14px; }
+
+  /* PACKAGES */
+  .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  @media (max-width: 880px) { .pkg-grid { grid-template-columns: 1fr; } }
+  .pkg {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 30px 26px; box-shadow: var(--shadow); display: flex; flex-direction: column;
+    transition: transform .3s, box-shadow .3s, border-color .3s; position: relative;
+  }
+  .pkg:hover { transform: translateY(-7px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+  .pkg.featured { border-color: var(--accent); background: linear-gradient(160deg, var(--accent-soft), var(--bg-card)); }
+  .pkg-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff;
+    font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 5px 14px; border-radius: 100px; white-space: nowrap; box-shadow: var(--shadow);
+  }
+  .pkg-ic { font-size: 30px; margin-bottom: 10px; }
+  .pkg-head h3 { font-size: 22px; margin-bottom: 7px; }
+  .pkg-for { font-size: 14.5px; color: var(--text-soft); margin-bottom: 20px; }
+  .pkg-list { list-style: none; display: grid; gap: 10px; margin-bottom: 24px; }
+  .pkg-list li { font-size: 14.5px; color: var(--text-soft); padding-left: 26px; position: relative; line-height: 1.5; }
+  .pkg-list li:before {
+    content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700;
+    background: var(--accent-soft); width: 18px; height: 18px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 11px;
+  }
+  .pkg-btn { margin-top: auto; width: 100%; justify-content: center; }
+  .addon {
+    margin-top: 22px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    background: var(--bg-card); border: 1px dashed var(--accent); border-radius: var(--radius); padding: 22px 26px;
+  }
+  .addon > div:nth-child(2) { flex: 1; min-width: 240px; }
+  .addon-ic { font-size: 24px; color: var(--accent); }
+  .addon b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .addon p { font-size: 14.5px; color: var(--text-soft); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-copy h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+  .contact-copy p { color: var(--text-soft); font-size: 17px; margin-bottom: 26px; }
+  .contact-methods { display: flex; flex-direction: column; gap: 12px; }
+  .cm { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); transition: border-color .2s, transform .2s; }
+  .cm:hover { border-color: var(--accent); transform: translateX(4px); }
+  .cm .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; font-size: 20px; background: var(--accent-soft); }
+  .cm b { display: block; font-size: 15px; }
+  .cm span { font-size: 13.5px; color: var(--text-soft); }
+  form { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+  .field { margin-bottom: 16px; }
+  label { font-size: 13.5px; font-weight: 600; display: block; margin-bottom: 7px; }
+  input, textarea, select {
+    width: 100%; font-family: inherit; font-size: 15px; padding: 12px 14px; border-radius: 11px;
+    border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); transition: border-color .2s, box-shadow .2s;
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  textarea { resize: vertical; min-height: 110px; }
+  form .btn-primary { width: 100%; justify-content: center; margin-top: 4px; }
+  .form-note { font-size: 12.5px; color: var(--text-soft); margin-top: 12px; text-align: center; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 34px 0; text-align: center; color: var(--text-soft); font-size: 14px; }
+  footer .brand { justify-content: center; margin-bottom: 10px; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span> Nidhi</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#packages">Packages</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle light / dark">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-wrap">
+    <div class="hero-inner">
+      <span class="pill"><span class="live"></span> Available for freelance projects</span>
+      <h1>I build <span class="grad">websites, apps &amp; learning content</span> that people actually use.</h1>
+      <div class="roles" role="text" aria-label="Flutter Developer, Web Developer, AI Solutions. Helping businesses build beautiful websites and mobile apps.">
+        <div class="roles-line">
+          <span class="role-item">Flutter Developer</span>
+          <span class="role-sep">•</span>
+          <span class="role-item">Web Developer</span>
+          <span class="role-sep">•</span>
+          <span class="role-item">AI Solutions</span>
+        </div>
+        <div class="roles-sub">Helping businesses build beautiful websites and mobile apps.</div>
+      </div>
+      <p class="lead">Hi, I'm Nidhi. For years I've been designing and shipping real products — from health apps to recipe hubs to kid-friendly learning sites. If you have an idea, I can turn it into something live, polished, and yours.</p>
+      <div class="cta-row">
+        <a href="#work" class="btn btn-primary">See my work →</a>
+        <a href="#contact" class="btn btn-ghost">Start a project</a>
+        <a id="waHero" href="#" class="btn btn-wa" target="_blank" rel="noopener">💬 WhatsApp me</a>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><b>10+</b><span>Live projects shipped</span></div>
+        <div class="stat reveal"><b>Web · iOS · Android</b><span>Platforms I build for</span></div>
+        <div class="stat reveal"><b>End‑to‑end</b><span>Design, build &amp; launch — solo</span></div>
+      </div>
+    </div>
+
+    <div class="hero-photo reveal">
+      <img src="images/nidhi-portrait.jpg" alt="Nidhi Matele — Flutter and web developer, working at a laptop surrounded by code, mobile and AI icons." />
+    </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <span class="sec-tag">About me</span>
+          <h2>Engineer by training. Builder by habit.</h2>
+          <p>I started my career as a <strong>software developer at Bosch India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
+          <p>I taught myself WordPress and built client websites. Then I learned Android Studio and shipped an Android app. To reach iPhone users I picked up Xcode and Swift. Finally I rebuilt everything in <strong>Flutter</strong>, so one codebase now serves both platforms — faster to build, cheaper for clients, identical on iOS and Android.</p>
+          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play. I also have <strong>three books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
+          <p>I also build websites to be found by <strong>AI agents</strong>, not just Google. As more people ask ChatGPT, Claude, and Perplexity for recommendations instead of searching, I make sure a site is structured so those systems can read it, understand it, and cite it.</p>
+          <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/nidhi-matele-172b44191/" target="_blank" rel="noopener" class="btn btn-ghost">View LinkedIn ↗</a>
+            <a href="#work" class="btn btn-ghost">See my work →</a>
+          </div>
+        </div>
+
+        <div class="about-side">
+          <div class="hl-card reveal">
+            <div class="hl-ic">🏆</div>
+            <h4>From award-winning idea to shipped app</h4>
+            <p>IntelliEats began as <strong>my daughter's science fair idea</strong> — it won <strong>Grand Prize</strong> at the Science &amp; Engineering Fair of Metro Detroit and <strong>State Merit</strong> at the 3M Young Scientist Challenge. I helped refine and research it, then built it into a real app now live on both stores.</p>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-ic">🎯</div>
+            <h4>Teaching that gets results</h4>
+            <p>I taught my son math at home. He placed <strong>1st nationally and 1st in state in Math Kangaroo</strong>, and has ranked <strong>top 15 nationally and top 5 in state for five years running</strong> — plus 1st place in his school's Math Olympiad. I also mentored his first science fair project, which placed <strong>1st at SEFMD</strong>.</p>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-ic">💡</div>
+            <h4>Patent pending</h4>
+            <p>Co-filed a <strong>patent application with my daughter</strong> for an original idea — currently pending.</p>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-ic">🎓</div>
+            <h4>5 years coaching</h4>
+            <p>Science Olympiad coach, science fair mentor, robotics &amp; coding coach, and room parent across elementary, middle, and high schools.</p>
+          </div>
+          <div class="hl-card reveal">
+            <div class="hl-ic">🛠️</div>
+            <h4>My toolkit</h4>
+            <div class="stack" style="margin:10px 0 0;">
+              <span>Flutter</span><span>Dart</span><span>Android Studio</span><span>Xcode / Swift</span>
+              <span>WordPress</span><span>HTML / CSS / JS</span><span>AI solutions</span><span>App Store &amp; Play launch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">What I do</span>
+        <h2>Three things, done properly</h2>
+        <p>Whether you need a website, a mobile app, or study material to sell, I handle it from first sketch to live launch.</p>
+      </div>
+      <div class="services">
+        <div class="svc reveal">
+          <div class="ic">🌐</div>
+          <h3>Websites</h3>
+          <p>Fast, modern, mobile-friendly websites — landing pages, business sites, and content hubs that look great and load quickly. Built <strong>SEO-ready and AI-ready</strong> from day one.</p>
+          <ul><li>Landing pages</li><li>Business sites</li><li>SEO</li><li>AI crawl optimization</li><li>Responsive</li></ul>
+        </div>
+        <div class="svc reveal">
+          <div class="ic">📱</div>
+          <h3>Mobile apps</h3>
+          <p>iOS &amp; Android apps built in <strong>Flutter</strong> — one codebase for both platforms, so you pay once and launch everywhere. I handle design, build, and store submission.</p>
+          <ul><li>Flutter</li><li>iOS</li><li>Android</li><li>UI/UX design</li><li>Store launch</li></ul>
+        </div>
+        <div class="svc reveal">
+          <div class="ic">📚</div>
+          <h3>Learning content &amp; books</h3>
+          <p>Study guides, printable material, and books — clearly written, well-designed, and ready to sell. I have <strong>three books published on Amazon</strong> and know the process end to end.</p>
+          <ul><li>Study guides</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
+        </div>
+      </div>
+
+      <!-- AI spotlight -->
+      <div class="spotlight reveal">
+        <div class="spot-left">
+          <span class="spot-tag">✦ Newer service</span>
+          <h3>AI agent crawl optimization</h3>
+          <p>Your customers don't only search Google any more — they ask ChatGPT, Claude, Gemini, and Perplexity. If those AI agents can't read your site properly, you simply don't get recommended.</p>
+          <p>I optimize websites so AI crawlers can find, understand, and cite your business — clean structured data, machine-readable content, proper schema markup, and crawler access rules.</p>
+        </div>
+        <div class="spot-right">
+          <div class="spot-item"><span>🤖</span><div><b>Structured data &amp; schema</b><p>So AI understands what you offer</p></div></div>
+          <div class="spot-item"><span>📄</span><div><b>Machine-readable content</b><p>Clean semantic HTML, llms.txt, sitemaps</p></div></div>
+          <div class="spot-item"><span>🔍</span><div><b>Crawler access rules</b><p>robots.txt tuned for AI agents</p></div></div>
+          <div class="spot-item"><span>📈</span><div><b>Get cited, not skipped</b><p>Show up in AI answers about your industry</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Selected work</span>
+        <h2>Live projects you can try right now</h2>
+        <p>Real, published products I designed and built myself — websites, apps on both stores, and books selling on Amazon. Click any card to see it live.</p>
+      </div>
+
+      <div class="tabs reveal" role="tablist" aria-label="Filter work by category">
+        <button class="tab active" data-filter="all" role="tab" aria-selected="true">All work</button>
+        <button class="tab" data-filter="web" role="tab" aria-selected="false">🌐 Websites</button>
+        <button class="tab" data-filter="app" role="tab" aria-selected="false">📱 Apps</button>
+        <button class="tab" data-filter="book" role="tab" aria-selected="false">📚 Books</button>
+      </div>
+
+      <div class="projects" id="projGrid">
+
+        <!-- Project 1 -->
+        <div class="card reveal" data-cat="web">
+          <div class="preview">
+            <div class="browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">intelieats.com</span></div>
+            <div class="frame-holder">
+              <div class="frame-poster"><div><div class="pname">IntelliEats</div><div class="psub">Live preview — click to open ↗</div></div></div>
+              <iframe src="https://intelieats.com/" loading="lazy" title="IntelliEats preview" scrolling="no"></iframe>
+              <a class="frame-overlay" href="https://intelieats.com/" target="_blank" rel="noopener" aria-label="Open IntelliEats"><span class="open-hint">Open live ↗</span></a>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Health &amp; Food App</span>
+            <h3>IntelliEats</h3>
+            <p>A smart ingredient-analysis app that helps people make healthier food choices by understanding what's really in their food.</p>
+            <div class="stack"><span>Product design</span><span>Web app</span><span>Responsive UI</span><span>Nutrition data</span></div>
+            <div class="card-links"><a href="https://intelieats.com/" target="_blank" rel="noopener">Visit site ↗</a></div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card reveal" data-cat="web">
+          <div class="preview">
+            <div class="browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">learnthebasics.org</span></div>
+            <div class="frame-holder">
+              <div class="frame-poster"><div><div class="pname">Learn the Basics</div><div class="psub">Live preview — click to open ↗</div></div></div>
+              <iframe src="https://www.learnthebasics.org/" loading="lazy" title="Learn the Basics preview" scrolling="no"></iframe>
+              <a class="frame-overlay" href="https://www.learnthebasics.org/" target="_blank" rel="noopener" aria-label="Open Learn the Basics"><span class="open-hint">Open live ↗</span></a>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">EdTech &amp; Digital Products</span>
+            <h3>Learn the Basics</h3>
+            <p>A kid-friendly hub that teaches AI and machine learning through fun guides, diagrams, and practice questions — with premium printable study material sold online.</p>
+            <div class="stack"><span>Website</span><span>Educational content</span><span>SEO</span><span>Paid PDF products</span></div>
+            <div class="card-links"><a href="https://www.learnthebasics.org/" target="_blank" rel="noopener">Visit site ↗</a></div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card reveal" data-cat="web">
+          <div class="preview">
+            <div class="browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">bevegtoday.com</span></div>
+            <div class="frame-holder">
+              <div class="frame-poster"><div><div class="pname">BeVegToday</div><div class="psub">Live preview — click to open ↗</div></div></div>
+              <iframe src="https://bevegtoday.com/" loading="lazy" title="BeVegToday preview" scrolling="no"></iframe>
+              <a class="frame-overlay" href="https://bevegtoday.com/" target="_blank" rel="noopener" aria-label="Open BeVegToday"><span class="open-hint">Open live ↗</span></a>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Recipe Platform</span>
+            <h3>BeVegToday Recipe Hub</h3>
+            <p>A clean, browsable vegetarian recipe hub designed to help people cook and eat more plant-based meals every day.</p>
+            <div class="stack"><span>Web app</span><span>Content design</span><span>Search &amp; browse</span><span>Mobile-first</span></div>
+            <div class="card-links"><a href="https://bevegtoday.com/" target="_blank" rel="noopener">Visit site ↗</a></div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card reveal" data-cat="web">
+          <div class="preview">
+            <div class="browser-bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">yupnri.com</span></div>
+            <div class="frame-holder">
+              <div class="frame-poster"><div><div class="pname">YupNri</div><div class="psub">Live preview — click to open ↗</div></div></div>
+              <iframe src="https://yupnri.com/" loading="lazy" title="YupNri preview" scrolling="no"></iframe>
+              <a class="frame-overlay" href="https://yupnri.com/" target="_blank" rel="noopener" aria-label="Open YupNri"><span class="open-hint">Open live ↗</span></a>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Platform &amp; Tools</span>
+            <h3>YupNri</h3>
+            <p>A complete companion platform for Non-Resident Indians — live exchange rates, NRI news, handy calculators, and community, serving users across 190+ countries.</p>
+            <div class="stack"><span>Web platform</span><span>Live data / rates</span><span>Calculators</span><span>Newsletter</span></div>
+            <div class="card-links"><a href="https://yupnri.com/" target="_blank" rel="noopener">Visit site ↗</a></div>
+          </div>
+        </div>
+
+        <!-- APP: IntelliEats -->
+        <div class="card reveal" data-cat="app">
+          <div class="preview shot-preview">
+            <a href="https://apps.apple.com/us/app/intellieats/id6744873855" target="_blank" rel="noopener" aria-label="Open IntelliEats on the App Store">
+              <img src="images/intellieats-app.jpg" alt="IntelliEats app — Eat Smart. Live Healthy. Premium ingredient detection for nut allergy, gluten, lactose, keto, vegetarian and vegan." loading="lazy" />
+            </a>
+            <div class="live-badge">Live on both stores</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">iOS &amp; Android App · Flutter</span>
+            <h3>IntelliEats</h3>
+            <p>Scan any food label and instantly see which ingredients matter. Built with OCR ingredient detection plus premium dietary filters for vegetarian, vegan, nut-free, gluten-free, lactose and keto. <strong>5.0★ on the App Store.</strong></p>
+            <p class="award">🏆 Started as my daughter's science fair project — Grand Prize at SEFMD and State Merit at the 3M Young Scientist Challenge. I refined the research with her and developed it into the shipped app.</p>
+            <div class="stack"><span>Flutter</span><span>Dart</span><span>OCR / Camera</span><span>iOS &amp; Android</span><span>Store launch</span></div>
+            <div class="card-links">
+              <a href="https://apps.apple.com/us/app/intellieats/id6744873855" target="_blank" rel="noopener"> App Store ↗</a>
+              <a href="https://play.google.com/store/apps/details?id=com.Lakh.intelli_eats" target="_blank" rel="noopener">▶ Google Play ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- APP: in development -->
+        <div class="card reveal" data-cat="app">
+          <div class="preview app-preview soon">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="app-icon">🚀</div>
+                <div class="app-name">2 more apps</div>
+                <div class="app-meta">Currently in development</div>
+              </div>
+            </div>
+            <div class="live-badge soon-badge">Coming soon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">In development</span>
+            <h3>Two new apps on the way</h3>
+            <p>I'm actively building two more cross-platform apps in Flutter — same approach: one codebase, both stores, designed and shipped end-to-end.</p>
+            <div class="stack"><span>Flutter</span><span>Cross-platform</span><span>In progress</span></div>
+            <div class="card-links"><a href="#contact">Want something similar? →</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 1 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/Rainbow-Village-Friends-Coloring-Activity/dp/B0H35K79YN/" target="_blank" rel="noopener" aria-label="View Rainbow Village Friends on Amazon">
+              <img src="images/book-rainbow-village.jpg" alt="Rainbow Village Friends coloring book cover with cartoon fox, bear, chick and frog under a rainbow." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Published Book</span>
+            <h3>Rainbow Village Friends</h3>
+            <p>A coloring and activity book for young children — original illustrations, puzzles, and creative pages designed to keep kids engaged away from screens.</p>
+            <div class="stack"><span>Illustration</span><span>Layout &amp; design</span><span>KDP publishing</span><span>Kids 3–8</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/Rainbow-Village-Friends-Coloring-Activity/dp/B0H35K79YN/" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 2 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/Epic-Travel-Adventure-Journal-Kids/dp/B0H236ZRKG/" target="_blank" rel="noopener" aria-label="View Epic Travel Adventure Journal for Kids on Amazon">
+              <img src="images/book-epic-travel.jpg" alt="Epic Travel Adventure Journal for Kids cover with children exploring a treasure map, hot air balloon and castle." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Published Book</span>
+            <h3>Epic Travel Adventure Journal for Kids</h3>
+            <p>A guided journal that turns any family trip into a keepsake — prompts, drawing space, and memory pages that help kids record their adventures.</p>
+            <div class="stack"><span>Content design</span><span>Interior layout</span><span>KDP publishing</span><span>Kids &amp; family</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/Epic-Travel-Adventure-Journal-Kids/dp/B0H236ZRKG/" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 3 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/Travel-Time-Kids-Vacation-Journal/dp/B0H1HQ2VT9/" target="_blank" rel="noopener" aria-label="View Travel Time Kids Vacation Journal on Amazon">
+              <img src="images/book-travel-time.jpg" alt="Travel Journal cover — Exploring, Dreaming, Doodling — with globe, plane, passport, camera and luggage." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Published Book</span>
+            <h3>Travel Time — Kids Vacation Journal</h3>
+            <p>A vacation journal built for younger travellers, with simple daily prompts and space for photos, tickets, and drawings from the trip.</p>
+            <div class="stack"><span>Content design</span><span>Interior layout</span><span>KDP publishing</span><span>Kids &amp; family</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/Travel-Time-Kids-Vacation-Journal/dp/B0H1HQ2VT9/" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="card reveal always" style="justify-content:center; text-align:center; padding:40px 28px; background:linear-gradient(135deg, var(--accent-soft), var(--bg-card));">
+          <div class="card-body" style="align-items:center;">
+            <span class="kicker">Your project next?</span>
+            <h3>Let's build yours</h3>
+            <p>Have a website, app, or book in mind? I'd love to hear about it and see how I can help.</p>
+            <a href="#contact" class="btn btn-primary" style="margin-top:6px;">Get in touch →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section id="recognition">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Recognition</span>
+        <h2>Reviewed, awarded, and proven</h2>
+        <p>Published ratings for my own work, and judged awards for projects I mentored and built alongside my children.</p>
+      </div>
+
+      <div class="rec-grid">
+        <!-- Review -->
+        <div class="rec-quote reveal">
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <b>5.0</b>
+            <span class="rating-src">on the App Store</span>
+          </div>
+          <blockquote>“Finally an app that makes reading ingredient labels easy! … I just scan the ingredient list, and within seconds the app highlights ingredients that may be worth avoiding. It doesn't just flag ingredients — it explains <em>why</em>, so I can make my own informed decisions. The OCR scanning is fast and accurate, and the interface is clean and easy to use.”</blockquote>
+          <cite>— App Store review, IntelliEats</cite>
+          <a href="https://apps.apple.com/us/app/intellieats/id6744873855" target="_blank" rel="noopener" class="rec-link">Read reviews on the App Store ↗</a>
+        </div>
+
+        <!-- Awards -->
+        <div class="rec-list">
+          <div class="rec-group-label reveal">Projects I mentored &amp; built with my children</div>
+
+          <div class="rec-item reveal">
+            <div class="rec-ic">🥇</div>
+            <div>
+              <b>Grand Prize — Science &amp; Engineering Fair of Metro Detroit</b>
+              <p>My daughter's original idea, which I helped refine, research and develop — then built into the IntelliEats app you can download today.</p>
+            </div>
+          </div>
+          <div class="rec-item reveal">
+            <div class="rec-ic">🎖️</div>
+            <div>
+              <b>State Merit — 3M Young Scientist Challenge</b>
+              <p>State-level recognition for the same project.</p>
+            </div>
+          </div>
+          <div class="rec-item reveal">
+            <div class="rec-ic">💡</div>
+            <div>
+              <b>Patent application pending</b>
+              <p>Co-filed with my daughter for an original idea.</p>
+            </div>
+          </div>
+          <div class="rec-item reveal">
+            <div class="rec-ic">📐</div>
+            <div>
+              <b>1st nationally &amp; in state — Math Kangaroo</b>
+              <p>My son's results from math I taught him at home. Top 15 nationally and top 5 in state, five years running.</p>
+            </div>
+          </div>
+          <div class="rec-item reveal">
+            <div class="rec-ic">🔬</div>
+            <div>
+              <b>1st place — SEFMD Science Fair</b>
+              <p>My son's first science fair project, which I mentored end to end.</p>
+            </div>
+          </div>
+
+          <p class="rec-note reveal">I mentored and co-developed these projects — the awards belong to my children. What I bring to your project is the same thing I brought to theirs: turning a rough idea into something that actually works and ships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">How we'll work</span>
+        <h2>Simple, clear, no surprises</h2>
+        <p>You always know what's happening and what's next. No jargon, no confusion.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><b>01</b><h4>Chat</h4><p>You tell me your idea and goals. I ask questions and suggest the best approach.</p></div>
+        <div class="step reveal"><b>02</b><h4>Plan &amp; quote</h4><p>I give you a clear scope, timeline, and a fair price before any work starts.</p></div>
+        <div class="step reveal"><b>03</b><h4>Build</h4><p>I design and build it, sharing progress so you can give feedback along the way.</p></div>
+        <div class="step reveal"><b>04</b><h4>Launch</h4><p>We go live. I make sure everything works and you know how to use it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-tag">Packages</span>
+        <h2>Pick a starting point</h2>
+        <p>Every project is different, so I quote each one after a short conversation — no surprise costs, and you'll know the full price before any work begins.</p>
+      </div>
+
+      <div class="pkg-grid">
+        <div class="pkg reveal">
+          <div class="pkg-head">
+            <div class="pkg-ic">🌐</div>
+            <h3>Website</h3>
+            <p class="pkg-for">For businesses that need to be found and trusted online.</p>
+          </div>
+          <ul class="pkg-list">
+            <li>Custom design — no cookie-cutter templates</li>
+            <li>Fully mobile &amp; tablet responsive</li>
+            <li>Up to 5 pages (more on request)</li>
+            <li>Contact form &amp; enquiry setup</li>
+            <li>Basic SEO so Google can find you</li>
+            <li>Fast loading &amp; accessible</li>
+            <li>Launch support + handover guide</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost pkg-btn">Request a quote →</a>
+        </div>
+
+        <div class="pkg featured reveal">
+          <span class="pkg-badge">Most popular</span>
+          <div class="pkg-head">
+            <div class="pkg-ic">📱</div>
+            <h3>Mobile app</h3>
+            <p class="pkg-for">One Flutter codebase — iOS and Android, built once.</p>
+          </div>
+          <ul class="pkg-list">
+            <li>Built in Flutter for both platforms</li>
+            <li>Full UI/UX design included</li>
+            <li>Core features scoped with you upfront</li>
+            <li>App Store &amp; Google Play submission</li>
+            <li>App icon, screenshots &amp; store listing</li>
+            <li>Testing on real devices</li>
+            <li>Post-launch fixes included</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary pkg-btn">Request a quote →</a>
+        </div>
+
+        <div class="pkg reveal">
+          <div class="pkg-head">
+            <div class="pkg-ic">📚</div>
+            <h3>Books &amp; study material</h3>
+            <p class="pkg-for">Content that teaches — and is ready to sell.</p>
+          </div>
+          <ul class="pkg-list">
+            <li>Original written &amp; visual content</li>
+            <li>Interior layout &amp; cover design</li>
+            <li>Print-ready and digital formats</li>
+            <li>Amazon KDP publishing setup</li>
+            <li>Study guides, workbooks &amp; printables</li>
+            <li>Age-appropriate, classroom-tested approach</li>
+            <li>Revisions until you're happy</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost pkg-btn">Request a quote →</a>
+        </div>
+      </div>
+
+      <div class="addon reveal">
+        <div class="addon-ic">✦</div>
+        <div>
+          <b>Add-on: AI crawl optimization</b>
+          <p>Can be added to any website package, or done on your existing site — so ChatGPT, Claude, Gemini and Perplexity can find, understand and recommend your business.</p>
+        </div>
+        <a href="#contact" class="btn btn-ghost">Ask about it →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--bg-soft);">
+    <div class="wrap contact-grid">
+      <div class="contact-copy reveal">
+        <span class="sec-tag">Let's talk</span>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me a little about what you need — a website, an app, or study material. I'll get back to you quickly with ideas and next steps. No obligation.</p>
+        <div class="contact-methods">
+          <a id="waCard" class="cm" href="#" target="_blank" rel="noopener">
+            <div class="ic">💬</div>
+            <div><b>WhatsApp</b><span>Fastest way to reach me</span></div>
+          </a>
+          <a class="cm" href="mailto:snidmat20@gmail.com">
+            <div class="ic">✉️</div>
+            <div><b>Email</b><span>snidmat20@gmail.com</span></div>
+          </a>
+          <a class="cm" href="https://www.linkedin.com/in/nidhi-matele-172b44191/" target="_blank" rel="noopener">
+            <div class="ic">in</div>
+            <div><b>LinkedIn</b><span>See my full background</span></div>
+          </a>
+        </div>
+      </div>
+
+      <form id="contactForm" class="reveal">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="type">What do you need?</label>
+          <select id="type" name="type">
+            <option>A website</option>
+            <option>A mobile app (iOS / Android)</option>
+            <option>AI crawl optimization for my site</option>
+            <option>Study material / a book</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Tell me about your project</label>
+          <textarea id="msg" name="message" placeholder="A few sentences about your idea, goals, and timeline..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message →</button>
+        <p class="form-note">Your message opens in your email app, ready to send. Prefer chat? Use WhatsApp above.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Nidhi</div>
+    <p>Websites · Mobile apps · Learning content &nbsp;•&nbsp; Let's build something great together.</p>
+    <p style="margin-top:8px;">© <span id="yr"></span> Nidhi. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     EDIT THIS: put your WhatsApp number here (country code + number,
+     digits only, no + or spaces). Example India: 919876543210
+     ============================================================ */
+  const WHATSAPP_NUMBER = "16166107226";
+  const CONTACT_EMAIL = "snidmat20@gmail.com";
+
+  // Build WhatsApp links
+  (function () {
+    var msg = encodeURIComponent("Hi Nidhi! I saw your portfolio and I'd like to discuss a project.");
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg;
+    document.getElementById("waHero").href = url;
+    document.getElementById("waCard").href = url;
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  })();
+
+  // Theme toggle (remembers choice)
+  (function () {
+    var html = document.documentElement;
+    var btn = document.getElementById("themeBtn");
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var theme = saved || (prefersDark ? "dark" : "light");
+    apply(theme);
+    btn.addEventListener("click", function () {
+      theme = (html.getAttribute("data-theme") === "dark") ? "light" : "dark";
+      apply(theme);
+      try { localStorage.setItem("theme", theme); } catch (e) {}
+    });
+    function apply(t) {
+      html.setAttribute("data-theme", t);
+      btn.textContent = (t === "dark") ? "☀️" : "🌙";
+    }
+  })();
+
+  // Work category filter
+  (function () {
+    var tabs = document.querySelectorAll(".tab");
+    var cards = document.querySelectorAll("#projGrid .card");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var f = tab.getAttribute("data-filter");
+        tabs.forEach(function (t) { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+        tab.classList.add("active"); tab.setAttribute("aria-selected", "true");
+        cards.forEach(function (c) {
+          var cat = c.getAttribute("data-cat");
+          var show = (f === "all") || (cat === f) || c.classList.contains("always");
+          c.classList.toggle("hide", !show);
+          if (show) { c.classList.remove("filtering"); void c.offsetWidth; c.classList.add("filtering"); }
+        });
+      });
+    });
+  })();
+
+  // Scroll reveal
+  (function () {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (e, i) { e.style.transitionDelay = (i % 4) * 0.06 + "s"; io.observe(e); });
+  })();
+
+  // Contact form -> opens email app with prefilled message (works free, no server)
+  (function () {
+    var form = document.getElementById("contactForm");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = encodeURIComponent(form.name.value);
+      var email = form.email.value;
+      var type = encodeURIComponent(form.type.value);
+      var message = form.message.value;
+      var subject = encodeURIComponent("New project enquiry — " + form.type.value);
+      var body = encodeURIComponent(
+        "Name: " + form.name.value + "\n" +
+        "Email: " + email + "\n" +
+        "Needs: " + form.type.value + "\n\n" +
+        "Message:\n" + message
+      );
+      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
+    });
+  })();
+</script>
+</body>
+</html>

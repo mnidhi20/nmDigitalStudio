@@ -5,9 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nidhi Matele — Flutter Developer, Web Developer & AI Solutions</title>
 <meta name="description" content="Flutter Developer • Web Developer • AI Solutions. I help businesses build beautiful websites and mobile apps. 10+ live projects including apps on the App Store & Google Play and books on Amazon." />
-<meta property="og:title" content="Nidhi — Websites, Apps & Learning Content" />
-<meta property="og:description" content="Freelance builder of websites, mobile apps, and educational content. See live work and get in touch." />
+<link rel="canonical" href="https://mnidhi20.github.io/nmDigitalStudio/" />
+<meta property="og:title" content="Nidhi Matele — Flutter Developer, Web Developer & AI Solutions" />
+<meta property="og:description" content="Freelance developer building websites, iOS & Android apps, and published books. 10+ live projects. Available for work." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://mnidhi20.github.io/nmDigitalStudio/" />
+<meta property="og:image" content="https://mnidhi20.github.io/nmDigitalStudio/images/social-card.jpg" />
+<meta property="og:site_name" content="Nidhi Matele" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Nidhi Matele — Flutter Developer, Web Developer & AI Solutions" />
+<meta name="twitter:description" content="Freelance developer building websites, iOS & Android apps, and published books. 10+ live projects." />
+<meta name="twitter:image" content="https://mnidhi20.github.io/nmDigitalStudio/images/social-card.jpg" />
+<meta name="author" content="Nidhi Matele" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -384,6 +394,25 @@
   .addon b { display: block; font-size: 16px; margin-bottom: 4px; }
   .addon p { font-size: 14.5px; color: var(--text-soft); }
 
+  /* FAQ */
+  .faq-list { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+  .faq {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 4px 22px; box-shadow: var(--shadow); transition: border-color .25s;
+  }
+  .faq[open] { border-color: var(--accent); }
+  .faq summary {
+    cursor: pointer; list-style: none; font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: 18px; padding: 18px 34px 18px 0; position: relative; color: var(--text);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:after {
+    content: "+"; position: absolute; right: 2px; top: 50%; transform: translateY(-50%);
+    font-family: 'Inter', sans-serif; font-size: 24px; color: var(--accent); transition: transform .25s;
+  }
+  .faq[open] summary:after { content: "–"; }
+  .faq p { font-size: 15.5px; color: var(--text-soft); padding: 0 0 20px; line-height: 1.65; }
+
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
   @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -416,6 +445,123 @@
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
+<!-- ── Structured data: lets Google and AI agents understand who I am and what I offer ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi",
+      "name": "Nidhi Matele",
+      "jobTitle": "Flutter Developer, Web Developer & AI Solutions Consultant",
+      "description": "Freelance software developer building websites, cross-platform iOS and Android apps in Flutter, AI crawl optimization, and published books. Former software engineer at a multinational engineering company in India with four years of professional experience.",
+      "email": "mailto:snidmat20@gmail.com",
+      "telephone": "+1-616-610-7226",
+      "url": "https://mnidhi20.github.io/nmDigitalStudio/",
+      "image": "https://mnidhi20.github.io/nmDigitalStudio/images/nidhi-portrait.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/nidhi-matele-172b44191/",
+        "https://apps.apple.com/us/developer/nidhi-matele/id1809696387"
+      ],
+      "worksFor": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#business" },
+      "knowsAbout": [
+        "Flutter", "Dart", "Cross-platform mobile app development",
+        "iOS app development", "Android app development", "Xcode", "Android Studio",
+        "Web development", "WordPress", "HTML", "CSS", "JavaScript",
+        "Search engine optimization", "AI crawl optimization",
+        "Generative Engine Optimization", "Schema markup",
+        "Technical writing", "Self-publishing", "Educational content design"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://mnidhi20.github.io/nmDigitalStudio/#business",
+      "name": "Nidhi Matele — Web, Mobile & AI Development",
+      "description": "Freelance development studio building websites, iOS and Android apps, AI crawl optimization, and educational books. Every project designed, built and launched end to end by one developer.",
+      "url": "https://mnidhi20.github.io/nmDigitalStudio/",
+      "email": "mailto:snidmat20@gmail.com",
+      "telephone": "+1-616-610-7226",
+      "founder": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "areaServed": { "@type": "Place", "name": "Worldwide (remote)" },
+      "availableLanguage": "English",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Development services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website development",
+            "description": "Custom, fast, mobile-friendly websites built SEO-ready and AI-ready, including landing pages, business sites and content hubs." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile app development",
+            "description": "iOS and Android apps built in Flutter from a single codebase, including UI/UX design and App Store and Google Play submission." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI crawl optimization",
+            "description": "Optimizing websites so AI agents such as ChatGPT, Claude, Gemini and Perplexity can crawl, understand and cite the business — structured data, schema markup, machine-readable content and crawler access rules." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Books and study material",
+            "description": "Written and designed educational content, study guides, workbooks and printables, published to Amazon KDP." } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mnidhi20.github.io/nmDigitalStudio/#website",
+      "url": "https://mnidhi20.github.io/nmDigitalStudio/",
+      "name": "Nidhi Matele — Portfolio",
+      "publisher": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "IntelliEats",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "LifestyleApplication",
+      "url": "https://intelieats.com/",
+      "downloadUrl": "https://apps.apple.com/us/app/intellieats/id6744873855",
+      "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": "3", "bestRating": "5" },
+      "description": "Scan food labels to identify unhealthy ingredients, with premium dietary detection for vegetarian, vegan, nut-free, gluten-free, lactose and keto."
+    },
+    {
+      "@type": "Book",
+      "name": "Continuous Addition Tricks: Add up long lists of numbers in seconds",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://a.co/d/07Dznky8",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 6 },
+      "description": "A mental-math workbook teaching 7 addition shortcuts step by step, with 70 practice problems, 2 final practice tests and complete answer keys. Prep for Math Olympiad, AMC and CML."
+    },
+    {
+      "@type": "Book",
+      "name": "Division Tricks: 18 Fast Divisibility & Division Tricks for Kids",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://a.co/d/0a5L3186",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "A mental-math workbook teaching 18 divisibility and fast-division tricks, with 180 practice problems, 2 final practice tests and complete answer keys. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What does Nidhi Matele do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nidhi Matele is a freelance developer who builds websites, iOS and Android mobile apps in Flutter, AI crawl optimization for websites, and educational books and study material. She designs, builds and launches each project end to end herself." } },
+        { "@type": "Question", "name": "Does Nidhi build apps for both iPhone and Android?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Apps are built in Flutter, which means one codebase runs on both iOS and Android. This is faster to build and lower cost than commissioning two separate apps. She also handles App Store and Google Play submission." } },
+        { "@type": "Question", "name": "What is AI crawl optimization and why does it matter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "AI crawl optimization — also called Generative Engine Optimization (GEO) or LLM Optimization — structures a website so AI assistants such as ChatGPT, Claude, Gemini and Perplexity can read, understand and cite it. As more people ask AI for recommendations instead of searching Google, businesses that are not machine-readable are simply not mentioned in the answers." } },
+        { "@type": "Question", "name": "How much does a website or app cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every project is quoted individually after a short conversation about scope. You receive a clear, fixed price and timeline before any work begins, so there are no surprise costs." } },
+        { "@type": "Question", "name": "What experience does Nidhi Matele have?",
+          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped over ten live projects, including IntelliEats — an app rated 5.0 on the App Store and available on Google Play — four live websites, and five books published on Amazon." } },
+        { "@type": "Question", "name": "Does Nidhi Matele work remotely?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. She is based in Michigan, USA and works with clients remotely worldwide. Enquiries can be sent by email to snidmat20@gmail.com or by WhatsApp to +1 616 610 7226." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -439,7 +585,7 @@
   <section class="hero">
     <div class="wrap hero-wrap">
     <div class="hero-inner">
-      <span class="pill"><span class="live"></span> Accepting freelance projects</span>
+      <span class="pill"><span class="live"></span> Available for freelance projects</span>
       <h1>I build <span class="grad">websites, apps &amp; learning content</span> that people actually use.</h1>
       <div class="roles" role="text" aria-label="Flutter Developer, Web Developer, AI Solutions. Helping businesses build beautiful websites and mobile apps.">
         <div class="roles-line">
@@ -477,11 +623,11 @@
         <div class="about-copy reveal">
           <span class="sec-tag">About me</span>
           <h2>Engineer by training. Builder by habit.</h2>
-          <p>I started my career as a <strong>software developer at Multinational Company India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
+          <p>I started my career as a <strong>software developer at a multinational engineering company in India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
           <p>I taught myself WordPress and built client websites. Then I learned Android Studio and shipped an Android app. To reach iPhone users I picked up Xcode and Swift. Finally I rebuilt everything in <strong>Flutter</strong>, so one codebase now serves both platforms — faster to build, cheaper for clients, identical on iOS and Android.</p>
-          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play. I also have <strong>three books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
+          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play. I also have <strong>five books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
           <p>I also build websites to be found by <strong>AI agents</strong>, not just Google. As more people ask ChatGPT, Claude, and Perplexity for recommendations instead of searching, I make sure a site is structured so those systems can read it, understand it, and cite it.</p>
-          <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
+          <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. We've since published those methods as the <strong>Quick Math Tricks</strong> workbook series on Amazon, co-authored together. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
           <div class="about-links">
             <a href="https://www.linkedin.com/in/nidhi-matele-172b44191/" target="_blank" rel="noopener" class="btn btn-ghost">View LinkedIn ↗</a>
             <a href="#work" class="btn btn-ghost">See my work →</a>
@@ -497,7 +643,7 @@
           <div class="hl-card reveal">
             <div class="hl-ic">🎯</div>
             <h4>Teaching that gets results</h4>
-            <p>I taught my son math at home. He placed <strong>1st nationally and 1st in state in Math Kangaroo</strong>, and has ranked <strong>top 15 nationally and top 5 in state for five years running</strong> — plus 1st place in his school's Math Olympiad. I also mentored his first science fair project, which placed <strong>1st at SEFMD</strong>.</p>
+            <p>I taught my son math at home. He placed <strong>1st nationally and 1st in state in Math Kangaroo</strong>, and has ranked <strong>top 15 nationally and top 5 in state for five years running</strong> — plus 1st place in his school's Math Olympiad. I also mentored his first science fair project, which placed <strong>1st at SEFMD</strong>. We've since turned those methods into the <strong>Quick Math Tricks</strong> workbook series, published together on Amazon.</p>
           </div>
           <div class="hl-card reveal">
             <div class="hl-ic">💡</div>
@@ -546,8 +692,8 @@
         <div class="svc reveal">
           <div class="ic">📚</div>
           <h3>Learning content &amp; books</h3>
-          <p>Study guides, printable material, and books — clearly written, well-designed, and ready to sell. I have <strong>three books published on Amazon</strong> and know the process end to end.</p>
-          <ul><li>Study guides</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
+          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>five books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
+          <ul><li>Study guides</li><li>Maths workbooks</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
         </div>
       </div>
 
@@ -756,6 +902,42 @@
           </div>
         </div>
 
+        <!-- BOOK 4 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://a.co/d/07Dznky8" target="_blank" rel="noopener" aria-label="View Continuous Addition Tricks on Amazon">
+              <img src="images/book-addition-tricks.jpg" alt="Continuous Addition Tricks workbook cover — Quick Math Tricks series, ages 6+, 7 tricks and 70 puzzles, by Nidhi and Lakhith." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 6+</span>
+            <h3>Continuous Addition Tricks</h3>
+            <p>Book 1 of the <strong>Quick Math Tricks</strong> series. Seven step-by-step shortcuts for adding long lists of numbers mentally, reinforced with 70 practice problems, 2 final tests and complete answer keys. Great prep for Math Olympiad, AMC and CML.</p>
+            <p class="award">✍️ Co-authored with my son Lakhith — the same methods behind his national Math Kangaroo results.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://a.co/d/07Dznky8" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 5 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://a.co/d/0a5L3186" target="_blank" rel="noopener" aria-label="View Division Tricks on Amazon">
+              <img src="images/book-division-tricks.jpg" alt="Division Tricks workbook cover — Quick Math Tricks series, ages 8+, 18 tricks and 180 puzzles, by Nidhi and Lakhith." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>Division Tricks</h3>
+            <p>Book 2 of the <strong>Quick Math Tricks</strong> series. Eighteen divisibility and fast-division tricks — rules for 3, 4, 5, 6, 7, 8, 9, 11, 12 and 14 — with 180 practice problems, 2 final tests and full answer keys.</p>
+            <p class="award">✍️ Co-authored with my son Lakhith. Built as prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://a.co/d/0a5L3186" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
         <!-- CTA card -->
         <div class="card reveal always" style="justify-content:center; text-align:center; padding:40px 28px; background:linear-gradient(135deg, var(--accent-soft), var(--bg-card));">
           <div class="card-body" style="align-items:center;">
@@ -932,8 +1114,44 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" style="background:var(--bg-soft);">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <span class="sec-tag">Common questions</span>
+        <h2>Good to know before we start</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq reveal">
+          <summary>Do you build apps for both iPhone and Android?</summary>
+          <p>Yes. I build in Flutter, which means one codebase runs on both iOS and Android. It's faster to build and costs less than commissioning two separate apps, and the experience stays consistent across platforms. I also handle App Store and Google Play submission for you.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>What is AI crawl optimization, and do I need it?</summary>
+          <p>More and more people ask ChatGPT, Claude, Gemini or Perplexity for recommendations instead of searching Google. Those AI systems can only recommend businesses whose websites they can properly read and understand. AI crawl optimization — also called Generative Engine Optimization (GEO) or LLM Optimization — structures your site with schema markup, machine-readable content and correct crawler rules so you get cited in those answers instead of skipped. If your customers could plausibly ask an AI "who should I hire for this?", then yes, you need it.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>How much does a website or app cost?</summary>
+          <p>Every project is different, so I quote each one after a short conversation about what you actually need. You'll get a clear, fixed price and timeline before any work starts — no hourly surprises and no scope creep charges.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>What's your experience?</summary>
+          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and five books published on Amazon. You can try all of them from the work section above.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>How long will my project take?</summary>
+          <p>A straightforward website is usually a couple of weeks; an app depends heavily on the features you need. I'll give you a realistic timeline in the quote, and I share progress as I go so you're never wondering where things stand.</p>
+        </details>
+        <details class="faq reveal">
+          <summary>Do you work remotely?</summary>
+          <p>Yes. I'm based in Michigan, USA and work with clients anywhere. Most projects run over email and WhatsApp, with calls whenever they're useful.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
-  <section id="contact" style="background:var(--bg-soft);">
+  <section id="contact">
     <div class="wrap contact-grid">
       <div class="contact-copy reveal">
         <span class="sec-tag">Let's talk</span>

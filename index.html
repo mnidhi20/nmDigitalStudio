@@ -293,6 +293,12 @@
     display: grid; place-items: center; padding: 16px; perspective: 1100px;
   }
   .shot-preview a { display: grid; place-items: center; width: 100%; height: 100%; }
+  .shot-preview video {
+    max-width: 100%; max-height: 100%; width: auto; height: auto;
+    display: block; border-radius: 14px; box-shadow: 0 14px 34px rgba(20,12,60,.28);
+    transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  }
+  .card:hover .shot-preview video { transform: translateY(-6px) scale(1.03); }
   .shot-preview img {
     max-width: 100%; max-height: 100%; width: auto; height: auto;
     object-fit: contain; display: block;
@@ -521,6 +527,39 @@
       "description": "Scan food labels to identify unhealthy ingredients, with premium dietary detection for vegetarian, vegan, nut-free, gluten-free, lactose and keto."
     },
     {
+      "@type": "MobileApplication",
+      "name": "BingoBEE: Educational Bingo",
+      "operatingSystem": "iOS, iPadOS",
+      "applicationCategory": "EducationalApplication",
+      "url": "https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946",
+      "downloadUrl": "https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946",
+      "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "An educational bingo game for kids with themed learning sets covering multiplication, division, science, geography, space, patterns, emojis and coding logic. Includes an interactive bingo caller and printable bingo cards for classrooms, homeschool and family game nights. Ages 4+."
+    },
+    {
+      "@type": "Book",
+      "name": "Squaring & Cubing",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HHQTYZFP",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "A mental-math workbook teaching 10 shortcuts for squaring and cubing numbers, with 100 practice puzzles and complete answer keys. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
+    },
+    {
+      "@type": "Book",
+      "name": "Percentage Power",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HJ6GZ11S",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "A mental-math workbook teaching 9 fast ways to calculate percentages mentally, with 90 practice puzzles and complete answer keys. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
+    },
+    {
       "@type": "Book",
       "name": "Continuous Addition Tricks: Add up long lists of numbers in seconds",
       "bookFormat": "https://schema.org/Paperback",
@@ -554,7 +593,7 @@
         { "@type": "Question", "name": "How much does a website or app cost?",
           "acceptedAnswer": { "@type": "Answer", "text": "Every project is quoted individually after a short conversation about scope. You receive a clear, fixed price and timeline before any work begins, so there are no surprise costs." } },
         { "@type": "Question", "name": "What experience does Nidhi Matele have?",
-          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped over ten live projects, including IntelliEats — an app rated 5.0 on the App Store and available on Google Play — four live websites, and five books published on Amazon." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped more than a dozen live projects: two published iOS apps (IntelliEats, rated 5.0 on the App Store and also on Google Play, and BingoBEE, an educational bingo game), four live websites, and seven books published on Amazon." } },
         { "@type": "Question", "name": "Does Nidhi Matele work remotely?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. She is based in Michigan, USA and works with clients remotely worldwide. Enquiries can be sent by email to snidmat20@gmail.com or by WhatsApp to +1 616 610 7226." } }
       ]
@@ -604,7 +643,7 @@
         <a id="waHero" href="#" class="btn btn-wa" target="_blank" rel="noopener">💬 WhatsApp me</a>
       </div>
       <div class="stats">
-        <div class="stat reveal"><b>10+</b><span>Live projects shipped</span></div>
+        <div class="stat reveal"><b>13+</b><span>Live projects shipped</span></div>
         <div class="stat reveal"><b>Web · iOS · Android</b><span>Platforms I build for</span></div>
         <div class="stat reveal"><b>End‑to‑end</b><span>Design, build &amp; launch — solo</span></div>
       </div>
@@ -625,7 +664,7 @@
           <h2>Engineer by training. Builder by habit.</h2>
           <p>I started my career as a <strong>software developer at a multinational engineering company in India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
           <p>I taught myself WordPress and built client websites. Then I learned Android Studio and shipped an Android app. To reach iPhone users I picked up Xcode and Swift. Finally I rebuilt everything in <strong>Flutter</strong>, so one codebase now serves both platforms — faster to build, cheaper for clients, identical on iOS and Android.</p>
-          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play. I also have <strong>five books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
+          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play, and <strong>BingoBEE</strong>, my educational bingo game for kids, is now on the App Store too. I also have <strong>seven books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
           <p>I also build websites to be found by <strong>AI agents</strong>, not just Google. As more people ask ChatGPT, Claude, and Perplexity for recommendations instead of searching, I make sure a site is structured so those systems can read it, understand it, and cite it.</p>
           <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. We've since published those methods as the <strong>Quick Math Tricks</strong> workbook series on Amazon, co-authored together. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
           <div class="about-links">
@@ -692,7 +731,7 @@
         <div class="svc reveal">
           <div class="ic">📚</div>
           <h3>Learning content &amp; books</h3>
-          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>five books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
+          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>seven books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
           <ul><li>Study guides</li><li>Maths workbooks</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
         </div>
       </div>
@@ -830,6 +869,30 @@
           </div>
         </div>
 
+        <!-- APP: BingoBEE -->
+        <div class="card reveal" data-cat="app">
+          <div class="preview shot-preview">
+            <a href="https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946" target="_blank" rel="noopener" aria-label="Open BingoBEE on the App Store">
+              <video autoplay muted loop playsinline preload="metadata"
+                     poster="images/bingobee-poster.jpg"
+                     aria-label="BingoBEE educational bingo app preview">
+                <source src="bingobee-preview.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="live-badge">New — live on the App Store</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">iOS &amp; iPad App · Education</span>
+            <h3>BingoBEE: Educational Bingo</h3>
+            <p>Classic bingo turned into a learning game — 11+ themed sets covering multiplication, division, science, geography, space, patterns and coding logic. Includes an interactive bingo caller and printable cards for classrooms and homeschool.</p>
+            <p class="award">🎓 Built for teachers, homeschoolers and family game nights. Free to download, ages 4+.</p>
+            <div class="stack"><span>Flutter</span><span>iOS &amp; iPad</span><span>Game design</span><span>In-app purchases</span><span>Printable exports</span></div>
+            <div class="card-links">
+              <a href="https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946" target="_blank" rel="noopener"> App Store ↗</a>
+            </div>
+          </div>
+        </div>
+
         <!-- APP: in development -->
         <div class="card reveal" data-cat="app">
           <div class="preview app-preview soon">
@@ -935,6 +998,42 @@
             <p class="award">✍️ Co-authored with my son Lakhith. Built as prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
             <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
             <div class="card-links"><a href="https://a.co/d/0a5L3186" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 6 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/dp/B0HHQTYZFP" target="_blank" rel="noopener" aria-label="View Squaring &amp; Cubing on Amazon">
+              <img src="images/book-squaring-cubing.jpg" alt="Squaring &amp; Cubing workbook cover — Quick Math Tricks series, ages 8+, 10 tricks and 100 puzzles." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>Squaring &amp; Cubing</h3>
+            <p>Ten mental shortcuts for squaring and cubing numbers in your head, with 100 practice puzzles, step-by-step worked examples and full answer keys.</p>
+            <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/dp/B0HHQTYZFP" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 7 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/dp/B0HJ6GZ11S" target="_blank" rel="noopener" aria-label="View Percentage Power on Amazon">
+              <img src="images/book-percentage-power.jpg" alt="Percentage Power workbook cover — Quick Math Tricks series, ages 8+, 9 tricks and 90 puzzles." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>Percentage Power</h3>
+            <p>Nine fast ways to work out percentages mentally — discounts, tips, increases and comparisons — with 90 practice puzzles and complete answer keys.</p>
+            <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/dp/B0HJ6GZ11S" target="_blank" rel="noopener">View on Amazon ↗</a></div>
           </div>
         </div>
 
@@ -1136,7 +1235,7 @@
         </details>
         <details class="faq reveal">
           <summary>What's your experience?</summary>
-          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and five books published on Amazon. You can try all of them from the work section above.</p>
+          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and seven books published on Amazon. You can try all of them from the work section above.</p>
         </details>
         <details class="faq reveal">
           <summary>How long will my project take?</summary>

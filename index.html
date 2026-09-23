@@ -106,6 +106,72 @@
   }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
   @media (prefers-reduced-motion: reduce) { .hero-photo img, .hero-photo:before { animation: none; } }
+
+  /* ROTATING WORK TICKER — sized to match the portrait above it */
+  .ticker {
+    position: relative; z-index: 2; margin-top: 26px;
+    aspect-ratio: 1 / 1.06;
+    display: flex; flex-direction: column;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 22px; padding: 18px 18px 15px; box-shadow: var(--shadow);
+  }
+  .tk-head { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; flex: none; }
+  .tk-live { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; animation: pulse 2s infinite; flex: none; }
+  .tk-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-soft); }
+  .tk-count { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--text-soft); font-variant-numeric: tabular-nums; }
+  /* ── 3D COVERFLOW CAROUSEL ───────────────────────────── */
+  .cf-stage {
+    position: relative; flex: 1; min-height: 0;
+    perspective: 1200px; perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    touch-action: pan-y; cursor: grab; user-select: none;
+  }
+  .cf-stage.dragging { cursor: grabbing; }
+  .cf-item {
+    position: absolute; top: 50%; left: 50%; width: 74%; height: 97%;
+    display: flex; flex-direction: column; overflow: hidden;
+    border-radius: 17px; text-decoration: none;
+    background: var(--bg-card); border: 1px solid var(--border);
+    transform-style: preserve-3d; backface-visibility: hidden;
+    transition: transform .62s cubic-bezier(.22,.72,.26,1), opacity .5s, box-shadow .45s;
+    will-change: transform, opacity;
+  }
+  .cf-media {
+    flex: 1; min-height: 0; display: grid; place-items: center; padding: 12px;
+    background: linear-gradient(150deg, var(--accent-soft), var(--bg-soft));
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(28px, 5.5vw, 46px);
+    color: #fff; text-shadow: 0 3px 10px rgba(0,0,0,.2);
+  }
+  .cf-media img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; border-radius: 7px; pointer-events: none; }
+  .cf-info { flex: none; padding: 10px 13px 13px; background: var(--bg-card); transition: opacity .45s; }
+  .cf-cat { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+  .cf-info b {
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    font-family: 'Fraunces', serif; font-size: 16px; line-height: 1.22; color: var(--text);
+  }
+  /* card positions relative to the active one */
+  .cf-item[data-pos="0"]  { transform: translate(-50%,-50%) translateZ(0) scale(1); opacity: 1; z-index: 5; box-shadow: 0 24px 50px rgba(20,12,60,.34); }
+  .cf-item[data-pos="0"]:hover { transform: translate(-50%,-50%) translateZ(34px) scale(1.02); }
+  .cf-item[data-pos="-1"] { transform: translate(-50%,-50%) translateX(-64%) translateZ(-150px) rotateY(38deg) scale(.86); opacity: .62; z-index: 3; box-shadow: 0 14px 30px rgba(20,12,60,.2); }
+  .cf-item[data-pos="1"]  { transform: translate(-50%,-50%) translateX(64%)  translateZ(-150px) rotateY(-38deg) scale(.86); opacity: .62; z-index: 3; box-shadow: 0 14px 30px rgba(20,12,60,.2); }
+  .cf-item[data-pos="-1"] .cf-info, .cf-item[data-pos="1"] .cf-info { opacity: .5; }
+  .cf-item[data-pos="-2"] { transform: translate(-50%,-50%) translateX(-94%) translateZ(-340px) rotateY(50deg) scale(.68); opacity: 0; z-index: 1; pointer-events: none; }
+  .cf-item[data-pos="2"]  { transform: translate(-50%,-50%) translateX(94%)  translateZ(-340px) rotateY(-50deg) scale(.68); opacity: 0; z-index: 1; pointer-events: none; }
+  @media (max-width: 560px) {
+    .cf-item { width: 80%; }
+    .cf-item[data-pos="-1"] { transform: translate(-50%,-50%) translateX(-56%) translateZ(-120px) rotateY(32deg) scale(.84); }
+    .cf-item[data-pos="1"]  { transform: translate(-50%,-50%) translateX(56%)  translateZ(-120px) rotateY(-32deg) scale(.84); }
+  }
+  @media (prefers-reduced-motion: reduce) { .cf-item { transition: opacity .3s; } }
+  .tk-bar { height: 4px; border-radius: 4px; background: var(--border); margin-top: 14px; overflow: hidden; flex: none; }
+  .tk-bar i { display: block; height: 100%; width: 0%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .tk-swap { animation: tkIn .34s ease both; }
+  @keyframes tkIn { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .tk-swap { animation: none; } .tk-live { animation: none; } }
+  @media (max-width: 940px) {
+    .ticker { max-width: 300px; margin-left: auto; margin-right: auto; }
+    .tk-meta b { font-size: 17px; }
+  }
   .pill {
     display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600;
     color: var(--accent); background: var(--accent-soft); padding: 7px 14px; border-radius: 100px; margin-bottom: 22px;
@@ -463,7 +529,7 @@
       "jobTitle": "Flutter Developer, Web Developer & AI Solutions Consultant",
       "description": "Freelance software developer building websites, cross-platform iOS and Android apps in Flutter, AI crawl optimization, and published books. Former software engineer at a multinational engineering company in India with four years of professional experience.",
       "email": "mailto:snidmat20@gmail.com",
-      "telephone": "",
+      "telephone": "+1-616-610-7226",
       "url": "https://mnidhi20.github.io/nmDigitalStudio/",
       "image": "https://mnidhi20.github.io/nmDigitalStudio/images/nidhi-portrait.jpg",
       "sameAs": [
@@ -487,7 +553,7 @@
       "description": "Freelance development studio building websites, iOS and Android apps, AI crawl optimization, and educational books. Every project designed, built and launched end to end by one developer.",
       "url": "https://mnidhi20.github.io/nmDigitalStudio/",
       "email": "mailto:snidmat20@gmail.com",
-      "telephone": "",
+      "telephone": "+1-616-610-7226",
       "founder": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
       "areaServed": { "@type": "Place", "name": "Worldwide (remote)" },
       "availableLanguage": "English",
@@ -536,6 +602,28 @@
       "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "description": "An educational bingo game for kids with themed learning sets covering multiplication, division, science, geography, space, patterns, emojis and coding logic. Includes an interactive bingo caller and printable bingo cards for classrooms, homeschool and family game nights. Ages 4+."
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "RemindIQ",
+      "operatingSystem": "iOS, iPadOS",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://apps.apple.com/us/app/remindiq/id6761721028",
+      "downloadUrl": "https://apps.apple.com/us/app/remindiq/id6761721028",
+      "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Photograph any school flyer, calendar or newsletter and RemindIQ reads it on-device, extracting dates, no-school days, breaks, event times and locations and turning them into reminders. Includes voice input, priority levels and quiet hours. Works entirely on-device with no account required."
+    },
+    {
+      "@type": "Book",
+      "name": "Multiplication Magic",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HKHT5CGL",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "A mental-math workbook teaching 15 lightning shortcuts for multiplying large numbers, with 150 practice puzzles and complete answer keys. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
     },
     {
       "@type": "Book",
@@ -593,9 +681,9 @@
         { "@type": "Question", "name": "How much does a website or app cost?",
           "acceptedAnswer": { "@type": "Answer", "text": "Every project is quoted individually after a short conversation about scope. You receive a clear, fixed price and timeline before any work begins, so there are no surprise costs." } },
         { "@type": "Question", "name": "What experience does Nidhi Matele have?",
-          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped more than a dozen live projects: two published iOS apps (IntelliEats, rated 5.0 on the App Store and also on Google Play, and BingoBEE, an educational bingo game), four live websites, and seven books published on Amazon." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped more than a dozen live projects: four published apps (IntelliEats, rated 5.0 on the App Store and also on Google Play; BingoBEE, an educational bingo game; and RemindIQ, a scan-to-reminders utility), four live websites, and eight books published on Amazon." } },
         { "@type": "Question", "name": "Does Nidhi Matele work remotely?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. She is based in Michigan, USA and works with clients remotely worldwide. Enquiries can be sent by email to snidmat20@gmail.com or by WhatsApp ." } }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. She is based in Michigan, USA and works with clients remotely worldwide. Enquiries can be sent by email to snidmat20@gmail.com or by WhatsApp to +1 616 610 7226." } }
       ]
     }
   ]
@@ -651,6 +739,17 @@
 
     <div class="hero-photo reveal">
       <img src="images/nidhi-portrait.jpg" alt="Nidhi Matele — Flutter and web developer, working at a laptop surrounded by code, mobile and AI icons." />
+
+      <!-- rotating showcase of everything shipped -->
+      <div class="ticker" id="ticker" title="My published work — hover to pause">
+        <div class="tk-head">
+          <span class="tk-live"></span>
+          <span class="tk-label">Shipped &amp; live</span>
+          <span class="tk-count" id="tkCount">1 / 15</span>
+        </div>
+        <div class="cf-stage" id="cfStage"></div>
+        <div class="tk-bar"><i id="tkBar"></i></div>
+      </div>
     </div>
     </div>
   </section>
@@ -664,7 +763,7 @@
           <h2>Engineer by training. Builder by habit.</h2>
           <p>I started my career as a <strong>software developer at a multinational engineering company in India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
           <p>I taught myself WordPress and built client websites. Then I learned Android Studio and shipped an Android app. To reach iPhone users I picked up Xcode and Swift. Finally I rebuilt everything in <strong>Flutter</strong>, so one codebase now serves both platforms — faster to build, cheaper for clients, identical on iOS and Android.</p>
-          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play, and <strong>BingoBEE</strong>, my educational bingo game for kids, is now on the App Store too. I also have <strong>seven books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
+          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play, and <strong>BingoBEE</strong> (educational bingo for kids) and <strong>RemindIQ</strong>, a scan-to-reminders utility, are both now on the App Store too. I also have <strong>eight books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
           <p>I also build websites to be found by <strong>AI agents</strong>, not just Google. As more people ask ChatGPT, Claude, and Perplexity for recommendations instead of searching, I make sure a site is structured so those systems can read it, understand it, and cite it.</p>
           <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. We've since published those methods as the <strong>Quick Math Tricks</strong> workbook series on Amazon, co-authored together. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
           <div class="about-links">
@@ -731,7 +830,7 @@
         <div class="svc reveal">
           <div class="ic">📚</div>
           <h3>Learning content &amp; books</h3>
-          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>seven books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
+          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>eight books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
           <ul><li>Study guides</li><li>Maths workbooks</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
         </div>
       </div>
@@ -893,6 +992,30 @@
           </div>
         </div>
 
+        <!-- APP: RemindIQ -->
+        <div class="card reveal" data-cat="app">
+          <div class="preview shot-preview">
+            <a href="https://apps.apple.com/us/app/remindiq/id6761721028" target="_blank" rel="noopener" aria-label="Open RemindIQ on the App Store">
+              <video autoplay muted loop playsinline preload="metadata"
+                     poster="images/remindiq-poster.jpg"
+                     aria-label="RemindIQ app preview">
+                <source src="remindiq-preview.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="live-badge">New — live on the App Store</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">iPhone &amp; iPad App · Utilities</span>
+            <h3>RemindIQ</h3>
+            <p>Snap a photo of any school flyer, calendar or newsletter and RemindIQ reads it on-device — pulling out dates, no-school days, breaks, times and locations, and turning them straight into reminders. Includes voice add, priority levels and quiet hours.</p>
+            <p class="award">🔒 Works entirely on your device — no account, no sign-up, no cloud sync.</p>
+            <div class="stack"><span>Flutter</span><span>On-device OCR</span><span>Voice input</span><span>Notifications</span><span>iOS &amp; iPad</span></div>
+            <div class="card-links">
+              <a href="https://apps.apple.com/us/app/remindiq/id6761721028" target="_blank" rel="noopener"> App Store ↗</a>
+            </div>
+          </div>
+        </div>
+
         <!-- APP: in development -->
         <div class="card reveal" data-cat="app">
           <div class="preview app-preview soon">
@@ -1034,6 +1157,24 @@
             <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
             <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
             <div class="card-links"><a href="https://www.amazon.com/dp/B0HJ6GZ11S" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 8 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/dp/B0HKHT5CGL" target="_blank" rel="noopener" aria-label="View Multiplication Magic on Amazon">
+              <img src="images/book-multiplication-magic.jpg" alt="Multiplication Magic workbook cover — Quick Math Tricks series, ages 8+, 15 tricks and 150 puzzles." loading="lazy" />
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>Multiplication Magic</h3>
+            <p>Fifteen lightning shortcuts for multiplying big numbers in your head, with 150 practice puzzles, worked step-by-step examples and complete answer keys.</p>
+            <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/dp/B0HKHT5CGL" target="_blank" rel="noopener">View on Amazon ↗</a></div>
           </div>
         </div>
 
@@ -1235,7 +1376,7 @@
         </details>
         <details class="faq reveal">
           <summary>What's your experience?</summary>
-          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and seven books published on Amazon. You can try all of them from the work section above.</p>
+          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and eight books published on Amazon. You can try all of them from the work section above.</p>
         </details>
         <details class="faq reveal">
           <summary>How long will my project take?</summary>
@@ -1316,7 +1457,7 @@
      EDIT THIS: put your WhatsApp number here (country code + number,
      digits only, no + or spaces). Example India: 919876543210
      ============================================================ */
-  const WHATSAPP_NUMBER = "";
+  const WHATSAPP_NUMBER = "16166107226";
   const CONTACT_EMAIL = "snidmat20@gmail.com";
 
   // Build WhatsApp links
@@ -1346,6 +1487,118 @@
       html.setAttribute("data-theme", t);
       btn.textContent = (t === "dark") ? "☀️" : "🌙";
     }
+  })();
+
+  /* ── Rotating "shipped & live" ticker ─────────────────────────────
+     Change SPEED_MS below to slow it down (e.g. 2500 = 2.5 seconds). */
+  (function () {
+    var SPEED_MS = 4000;
+
+    var WORK = [
+      {c:"iOS & Android App", t:"IntelliEats",               u:"https://apps.apple.com/us/app/intellieats/id6744873855", img:"images/intellieats-app.jpg"},
+      {c:"iOS & iPad App",    t:"BingoBEE: Educational Bingo", u:"https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946", img:"images/bingobee-poster.jpg"},
+      {c:"iPhone & iPad App", t:"RemindIQ",                  u:"https://apps.apple.com/us/app/remindiq/id6761721028", img:"images/remindiq-poster.jpg"},
+      {c:"Website",  t:"intelieats.com",     u:"https://intelieats.com/",           l:"IE", bg:"linear-gradient(135deg,#2ec5d3,#f2e04a)"},
+      {c:"Website",  t:"learnthebasics.org", u:"https://www.learnthebasics.org/",   img:"images/icon-learnthebasics.svg"},
+      {c:"Website",  t:"bevegtoday.com",     u:"https://bevegtoday.com/",           img:"images/icon-bevegtoday.jpg", pad:true},
+      {c:"Website",  t:"yupnri.com",         u:"https://yupnri.com/",               img:"images/icon-yupnri.svg"},
+      {c:"Book",     t:"Continuous Addition Tricks", u:"https://a.co/d/07Dznky8",    img:"images/book-addition-tricks.jpg"},
+      {c:"Book",     t:"Division Tricks",            u:"https://a.co/d/0a5L3186",    img:"images/book-division-tricks.jpg"},
+      {c:"Book",     t:"Multiplication Magic",       u:"https://www.amazon.com/dp/B0HKHT5CGL", img:"images/book-multiplication-magic.jpg"},
+      {c:"Book",     t:"Squaring & Cubing",          u:"https://www.amazon.com/dp/B0HHQTYZFP", img:"images/book-squaring-cubing.jpg"},
+      {c:"Book",     t:"Percentage Power",           u:"https://www.amazon.com/dp/B0HJ6GZ11S", img:"images/book-percentage-power.jpg"},
+      {c:"Book",     t:"Rainbow Village Friends",    u:"https://www.amazon.com/dp/B0H35K79YN", img:"images/book-rainbow-village.jpg"},
+      {c:"Book",     t:"Epic Travel Adventure Journal", u:"https://www.amazon.com/dp/B0H236ZRKG", img:"images/book-epic-travel.jpg"},
+      {c:"Book",     t:"Travel Time — Vacation Journal", u:"https://www.amazon.com/dp/B0H1HQ2VT9", img:"images/book-travel-time.jpg"}
+    ];
+
+    var box=document.getElementById("ticker"),
+        stage=document.getElementById("cfStage"),
+        count=document.getElementById("tkCount"),
+        bar=document.getElementById("tkBar");
+    if(!box || !stage) return;
+
+    var N=WORK.length, cur=0, timer=null, paused=false, nodes=[];
+
+    // build every card once, then just move them in 3D
+    WORK.forEach(function(w,idx){
+      var a=document.createElement("a");
+      a.className="cf-item"; a.href=w.u; a.target="_blank"; a.rel="noopener";
+      a.setAttribute("aria-label", w.t+" — "+w.c+" (opens in a new tab)");
+      var media=w.img
+        ? '<span class="cf-media"><img src="'+w.img+'" alt="" loading="lazy"'+(w.pad?' style="padding:6px;background:#fff;border-radius:7px"':'')+'></span>'
+        : '<span class="cf-media" style="background:'+w.bg+'">'+w.l+'</span>';
+      a.innerHTML = media +
+        '<span class="cf-info"><span class="cf-cat">'+w.c+'</span><b>'+w.t+'</b></span>';
+      a.addEventListener("click", function(e){
+        if(dragged){ e.preventDefault(); return; }
+        if(idx!==cur){ e.preventDefault(); go(idx); }   // side card → bring to centre
+      });
+      stage.appendChild(a); nodes.push(a);
+    });
+
+    function rel(idx){                      // shortest wrap-aware distance
+      var d=idx-cur;
+      if(d >  N/2) d-=N;
+      if(d < -N/2) d+=N;
+      return d;
+    }
+    function layout(){
+      nodes.forEach(function(el,idx){
+        var d=rel(idx);
+        el.setAttribute("data-pos", d===0?"0" : d===-1?"-1" : d===1?"1" : (d<0?"-2":"2"));
+        el.tabIndex = d===0 ? 0 : -1;
+      });
+      count.textContent=(cur+1)+" / "+N;
+      bar.style.transition="none"; bar.style.width="0%"; void bar.offsetWidth;
+      if(!paused){ bar.style.transition="width "+SPEED_MS+"ms linear"; bar.style.width="100%"; }
+    }
+    function go(n){ cur=((n%N)+N)%N; layout(); restart(); }
+    function next(){ go(cur+1); }
+    function prev(){ go(cur-1); }
+
+    function start(){ if(!timer) timer=setInterval(function(){ if(!paused) next(); }, SPEED_MS); }
+    function stop(){ clearInterval(timer); timer=null; }
+    function restart(){ stop(); start(); }
+
+    layout(); start();
+
+    // pause while the visitor is looking at / using it
+    function hold(){ paused=true; bar.style.transition="none"; }
+    function release(){ paused=false; layout(); restart(); }
+    box.addEventListener("mouseenter", hold);
+    box.addEventListener("mouseleave", release);
+    box.addEventListener("focusin",  hold);
+    box.addEventListener("focusout", release);
+    document.addEventListener("visibilitychange", function(){ document.hidden ? stop() : start(); });
+
+    // mouse + touch swipe
+    var x0=null, dragged=false;
+    stage.addEventListener("pointerdown", function(e){
+      x0=e.clientX; dragged=false; hold();
+      stage.classList.add("dragging");
+      if(stage.setPointerCapture) try{ stage.setPointerCapture(e.pointerId); }catch(_){}
+    });
+    stage.addEventListener("pointermove", function(e){
+      if(x0===null) return;
+      if(Math.abs(e.clientX-x0) > 8) dragged=true;
+    });
+    function endDrag(e){
+      if(x0===null) return;
+      var dx=(e.clientX||x0)-x0;
+      x0=null; stage.classList.remove("dragging");
+      if(dx <= -45) next(); else if(dx >= 45) prev();
+      paused=false; layout(); restart();
+      setTimeout(function(){ dragged=false; }, 30);
+    }
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+
+    // keyboard
+    box.addEventListener("keydown", function(e){
+      if(e.key==="ArrowRight"){ next(); e.preventDefault(); }
+      if(e.key==="ArrowLeft"){ prev(); e.preventDefault(); }
+    });
   })();
 
   // Work category filter

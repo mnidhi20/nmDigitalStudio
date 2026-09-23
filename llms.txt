@@ -1,9 +1,9 @@
 # Nidhi Matele
 
 > Freelance software developer building websites, cross-platform iOS and Android
-> apps in Flutter, AI crawl optimization, and published books. Two apps live on the
-> App Store (IntelliEats, BingoBEE) and 7 books on Amazon. Former software engineer at a multinational engineering company in India,
-> with 4 years professional experience. 13+ live projects
+> apps in Flutter, AI crawl optimization, and published books. Three apps live on the
+> App Store (IntelliEats, BingoBEE, RemindIQ) and 8 books on Amazon. Former software engineer at a multinational engineering company in India,
+> with 4 years professional experience. 15+ live projects
 > shipped. Based in Michigan, USA — works with clients remotely worldwide.
 > Currently available for freelance work.
 
@@ -58,16 +58,24 @@ price and timeline before work begins.
   Includes an interactive bingo caller and printable bingo cards for classrooms,
   homeschool and family game nights. Free to download with optional in-app purchases.
   Ages 4+. https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946
+- **RemindIQ** — iPhone and iPad app (Utilities). Photograph any school flyer, calendar
+  or newsletter and RemindIQ reads it on-device, extracting dates, no-school days,
+  breaks, event times and locations and turning them into reminders. Voice input,
+  priority levels, quiet hours. No account, no cloud sync — fully on-device. Free,
+  ages 4+. https://apps.apple.com/us/app/remindiq/id6761721028
 - **Learn the Basics** — https://www.learnthebasics.org/ — Kid-friendly website
   teaching AI, machine learning, neural networks and LLMs, with paid printable
   study material.
 - **BeVegToday** — https://bevegtoday.com/ — Vegetarian recipe platform.
 - **YupNri** — https://yupnri.com/ — Companion platform for Non-Resident Indians:
   live exchange rates, news, calculators and community.
-- **Books on Amazon** (written, designed and self-published — 7 titles). The four
+- **Books on Amazon** (written, designed and self-published — 8 titles). The five
   Quick Math Tricks workbooks are a mental-math series for children, co-authored with
   Lakhith Matele, each teaching shortcuts step by step with practice puzzles and full
   answer keys:
+  - Multiplication Magic — Quick Math Tricks. Ages 8+: 15 lightning tricks for
+    multiplying big numbers mentally, 150 practice puzzles, full answer keys.
+    https://www.amazon.com/dp/B0HKHT5CGL
   - Squaring & Cubing — Quick Math Tricks. Ages 8+: 10 tricks for squaring and cubing
     numbers mentally, 100 practice puzzles, full answer keys.
     https://www.amazon.com/dp/B0HHQTYZFP

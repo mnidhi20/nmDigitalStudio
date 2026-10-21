@@ -358,7 +358,9 @@
     background: linear-gradient(150deg, var(--accent-soft), var(--bg-card));
     display: grid; place-items: center; padding: 16px; perspective: 1100px;
   }
-  .shot-preview a { display: grid; place-items: center; width: 100%; height: 100%; }
+  .shot-preview a { display: grid; place-items: center; width: 100%; height: 100%; grid-template-areas: "stack"; }
+  .shot-preview a > * { grid-area: stack; }
+  [hidden] { display: none !important; }
   .shot-preview video {
     max-width: 100%; max-height: 100%; width: auto; height: auto;
     display: block; border-radius: 14px; box-shadow: 0 14px 34px rgba(20,12,60,.28);
@@ -380,6 +382,32 @@
     transform: rotateY(-8deg); transform-origin: left center;
   }
   .card:hover .book-shot img { transform: rotateY(0deg) translateY(-6px) scale(1.02); }
+
+  /* placeholder cover tile (until the real artwork is added) */
+  .book-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+    width: 232px; aspect-ratio: 3 / 3.88; padding: 22px 18px; text-align: center;
+    background: linear-gradient(160deg, #fffaf0, #fdf3dc); border-radius: 3px 8px 8px 3px;
+    box-shadow: 0 16px 38px rgba(20,12,60,.26), inset 6px 0 0 rgba(0,0,0,.10);
+  }
+  .bt-kicker { font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #e0a92b; }
+  .bt-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: #f5c445; }
+  .bt-nums { font-size: 13px; color: #6b7180; }
+  .bt-nums b { color: #e8615a; font-size: 17px; }
+
+  .elf-tile { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; text-align:center; padding:20px; }
+  .elf-logo { display:flex; gap:4px; font-family:'Fraunces',serif; font-weight:700; font-size:62px; line-height:1; }
+  .elf-logo i { font-style:normal; }
+  .elf-logo i:nth-child(1){ color:#2196f3; }
+  .elf-logo i:nth-child(2){ color:#f5b921; }
+  .elf-logo i:nth-child(3){ color:#4caf50; }
+  .elf-tag { font-size:13px; font-weight:700; color:#1a3d63; letter-spacing:.02em; }
+  .elf-play { font-size:12.5px; font-weight:700; color:#fff; background:#ff0033; padding:6px 14px; border-radius:100px; }
+
+  .yt-tile { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; padding:20px; }
+  .yt-play { width:74px; height:74px; border-radius:50%; display:grid; place-items:center; font-size:27px; color:#fff; background:#ff0033; box-shadow:0 12px 28px rgba(255,0,51,.35); padding-left:4px; }
+  .yt-name { font-family:'Fraunces',serif; font-weight:700; font-size:21px; color:var(--text); }
+  .yt-sub { font-size:13px; color:var(--text-soft); }
 
   /* BOOK PREVIEW */
   .book { perspective: 900px; }
@@ -534,7 +562,8 @@
       "image": "https://mnidhi20.github.io/nmDigitalStudio/images/nidhi-portrait.jpg",
       "sameAs": [
         "https://www.linkedin.com/in/nidhi-matele-172b44191/",
-        "https://apps.apple.com/us/developer/nidhi-matele/id1809696387"
+        "https://apps.apple.com/us/developer/nidhi-matele/id1809696387",
+        "https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg"
       ],
       "worksFor": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#business" },
       "knowsAbout": [
@@ -605,6 +634,17 @@
     },
     {
       "@type": "MobileApplication",
+      "name": "TinySorts: Sort & Learn",
+      "operatingSystem": "iOS, iPadOS",
+      "applicationCategory": "EducationalApplication",
+      "url": "https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456",
+      "downloadUrl": "https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456",
+      "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "A sorting game for ages 2 to 10+ with 300 levels across 30 topics, from shapes and colours to fractions, pre-algebra, geometry and civics. Children earn stars and XP, unlock robot buddies and build a Robot Town and Moon base. No ads and no in-app purchases."
+    },
+    {
+      "@type": "MobileApplication",
       "name": "RemindIQ",
       "operatingSystem": "iOS, iPadOS",
       "applicationCategory": "UtilitiesApplication",
@@ -613,6 +653,28 @@
       "author": { "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "description": "Photograph any school flyer, calendar or newsletter and RemindIQ reads it on-device, extracting dates, no-school days, breaks, event times and locations and turning them into reminders. Includes voice input, priority levels and quiet hours. Works entirely on-device with no account required."
+    },
+    {
+      "@type": "Book",
+      "name": "The Mega Math Digest",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HN7KZHCJ",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "All six Quick Math Tricks workbooks bundled into one volume: 68 step-by-step mental-math tricks and 680 practice problems with full answer keys, covering addition, multiplication, division, fractions, percentages, squaring and cubing. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
+    },
+    {
+      "@type": "Book",
+      "name": "Fraction Power",
+      "bookFormat": "https://schema.org/Paperback",
+      "inLanguage": "en",
+      "url": "https://www.amazon.com/dp/B0HLLK2XJB",
+      "author": [{ "@id": "https://mnidhi20.github.io/nmDigitalStudio/#nidhi" }, { "@type": "Person", "name": "Lakhith Matele" }],
+      "isPartOf": { "@type": "BookSeries", "name": "Quick Math Tricks: Fast, Fun Mental Math for Curious Kids" },
+      "audience": { "@type": "Audience", "suggestedMinAge": 8 },
+      "description": "A mental-math workbook teaching 9 clever shortcuts to add, subtract, compare and simplify fractions mentally, with 90 practice puzzles and complete answer keys. Prep for Math Kangaroo, Math Olympiad, AMC and CML."
     },
     {
       "@type": "Book",
@@ -681,7 +743,7 @@
         { "@type": "Question", "name": "How much does a website or app cost?",
           "acceptedAnswer": { "@type": "Answer", "text": "Every project is quoted individually after a short conversation about scope. You receive a clear, fixed price and timeline before any work begins, so there are no surprise costs." } },
         { "@type": "Question", "name": "What experience does Nidhi Matele have?",
-          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped more than a dozen live projects: four published apps (IntelliEats, rated 5.0 on the App Store and also on Google Play; BingoBEE, an educational bingo game; and RemindIQ, a scan-to-reminders utility), four live websites, and eight books published on Amazon." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "She spent four years as a software developer at a multinational engineering company in India before moving to the USA. She has since shipped more than a dozen live projects: four published apps (IntelliEats, rated 5.0 on the App Store and also on Google Play; BingoBEE, an educational bingo game; RemindIQ, a scan-to-reminders utility; and TinySorts, a 300-level learning game), four live websites, and ten books published on Amazon." } },
         { "@type": "Question", "name": "Does Nidhi Matele work remotely?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. She is based in Michigan, USA and works with clients remotely worldwide. Enquiries can be sent by email to snidmat20@gmail.com or by WhatsApp to +1 616 610 7226." } }
       ]
@@ -731,7 +793,7 @@
         <a id="waHero" href="#" class="btn btn-wa" target="_blank" rel="noopener">💬 WhatsApp me</a>
       </div>
       <div class="stats">
-        <div class="stat reveal"><b>15+</b><span>Live projects shipped</span></div>
+        <div class="stat reveal"><b>19</b><span>Live projects shipped</span></div>
         <div class="stat reveal"><b>Web · iOS · Android</b><span>Platforms I build for</span></div>
         <div class="stat reveal"><b>End‑to‑end</b><span>Design, build &amp; launch — solo</span></div>
       </div>
@@ -745,7 +807,7 @@
         <div class="tk-head">
           <span class="tk-live"></span>
           <span class="tk-label">Shipped &amp; live</span>
-          <span class="tk-count" id="tkCount">1 / 15</span>
+          <span class="tk-count" id="tkCount">1 / 19</span>
         </div>
         <div class="cf-stage" id="cfStage"></div>
         <div class="tk-bar"><i id="tkBar"></i></div>
@@ -763,7 +825,7 @@
           <h2>Engineer by training. Builder by habit.</h2>
           <p>I started my career as a <strong>software developer at a multinational engineering company in India</strong>, where I spent four years building production software on a professional engineering team. After moving to the USA, I kept my skills sharp the only way that really works — by building real things and shipping them.</p>
           <p>I taught myself WordPress and built client websites. Then I learned Android Studio and shipped an Android app. To reach iPhone users I picked up Xcode and Swift. Finally I rebuilt everything in <strong>Flutter</strong>, so one codebase now serves both platforms — faster to build, cheaper for clients, identical on iOS and Android.</p>
-          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play, and <strong>BingoBEE</strong> (educational bingo for kids) and <strong>RemindIQ</strong>, a scan-to-reminders utility, are both now on the App Store too. I also have <strong>eight books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
+          <p>Today I take projects from <strong>first idea to live launch on my own</strong> — design, development, app store submission, and everything in between. <strong>IntelliEats</strong>, which I developed from my daughter's award-winning science fair idea, is live on both the App Store and Google Play, and <strong>BingoBEE</strong> (educational bingo for kids) and <strong>RemindIQ</strong>, a scan-to-reminders utility, and <strong>TinySorts</strong>, a 300-level learning game, are all on the App Store too. I also have <strong>ten books published on Amazon</strong> and <strong>two more apps in development</strong>.</p>
           <p>I also build websites to be found by <strong>AI agents</strong>, not just Google. As more people ask ChatGPT, Claude, and Perplexity for recommendations instead of searching, I make sure a site is structured so those systems can read it, understand it, and cite it.</p>
           <p>Alongside my work, I've spent the last five years as a <strong>parent coach and volunteer</strong> in elementary, middle, and high schools — coaching Science Olympiad, mentoring science fair students, leading robotics and coding sessions, and serving as room parent. Teaching my own son math at home took him to <strong>1st place nationally in Math Kangaroo</strong>, and the science fair project I mentored placed <strong>1st at SEFMD</strong>. We've since published those methods as the <strong>Quick Math Tricks</strong> workbook series on Amazon, co-authored together. It's proof that the material I create actually works — and it taught me to explain technical ideas simply, which is exactly what clients want.</p>
           <div class="about-links">
@@ -830,7 +892,7 @@
         <div class="svc reveal">
           <div class="ic">📚</div>
           <h3>Learning content &amp; books</h3>
-          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>eight books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
+          <p>Study guides, workbooks, printables and books — clearly written, well-designed, and ready to sell. I have <strong>ten books published on Amazon</strong>, including a maths workbook series, and know the process end to end.</p>
           <ul><li>Study guides</li><li>Maths workbooks</li><li>Activity books</li><li>Printables</li><li>Amazon KDP</li></ul>
         </div>
       </div>
@@ -963,7 +1025,8 @@
             <div class="stack"><span>Flutter</span><span>Dart</span><span>OCR / Camera</span><span>iOS &amp; Android</span><span>Store launch</span></div>
             <div class="card-links">
               <a href="https://apps.apple.com/us/app/intellieats/id6744873855" target="_blank" rel="noopener"> App Store ↗</a>
-              <a href="https://play.google.com/store/apps/details?id=com.Lakh.intelli_eats" target="_blank" rel="noopener">▶ Google Play ↗</a>
+              <a href="https://play.google.com/store/apps/details?id=com.Lakh.intelli_eats" target="_blank" rel="noopener">Google Play ↗</a>
+              <a href="https://youtube.com/shorts/qnY6jCp0lqM" target="_blank" rel="noopener">▶ Watch demo ↗</a>
             </div>
           </div>
         </div>
@@ -988,6 +1051,7 @@
             <div class="stack"><span>Flutter</span><span>iOS &amp; iPad</span><span>Game design</span><span>In-app purchases</span><span>Printable exports</span></div>
             <div class="card-links">
               <a href="https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946" target="_blank" rel="noopener"> App Store ↗</a>
+              <a href="https://youtube.com/shorts/uxQeK5SwbmQ" target="_blank" rel="noopener">▶ Watch demo ↗</a>
             </div>
           </div>
         </div>
@@ -1012,6 +1076,32 @@
             <div class="stack"><span>Flutter</span><span>On-device OCR</span><span>Voice input</span><span>Notifications</span><span>iOS &amp; iPad</span></div>
             <div class="card-links">
               <a href="https://apps.apple.com/us/app/remindiq/id6761721028" target="_blank" rel="noopener"> App Store ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- APP: TinySorts -->
+        <div class="card reveal" data-cat="app">
+          <div class="preview shot-preview">
+            <a href="https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456" target="_blank" rel="noopener" aria-label="Open TinySorts on the App Store">
+              <video autoplay muted loop playsinline preload="metadata"
+                     poster="images/tinysorts-poster.jpg"
+                     aria-label="TinySorts: Sort &amp; Learn app preview">
+                <source src="tinysorts-preview.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="live-badge">New — live on the App Store</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">iPhone &amp; iPad App · Education</span>
+            <h3>TinySorts: Sort &amp; Learn</h3>
+            <p>A sorting game that grows with the child — <strong>300 levels across 30 topics</strong>, from shapes and colours at age 2 to fractions, pre-algebra and civics at 10+. Kids earn XP, unlock robot buddies and build a Robot Town and Moon base as they learn.</p>
+            <p class="award">🎮 No ads and no in-app purchases. Wrong answers bounce back gently, so nothing is ever lost.</p>
+            <div class="stack"><span>Flutter</span><span>Game design</span><span>Curriculum design</span><span>Progression &amp; XP</span><span>iOS &amp; iPad</span></div>
+            <div class="card-links">
+              <a href="https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456" target="_blank" rel="noopener"> App Store ↗</a>
+              <a href="https://youtube.com/shorts/rIWHOX-EMKs" target="_blank" rel="noopener">▶ Watch demo ↗</a>
+              <a href="https://mnidhi20.github.io/tinysorts-site/" target="_blank" rel="noopener">Website ↗</a>
             </div>
           </div>
         </div>
@@ -1085,6 +1175,24 @@
             <p>A vacation journal built for younger travellers, with simple daily prompts and space for photos, tickets, and drawings from the trip.</p>
             <div class="stack"><span>Content design</span><span>Interior layout</span><span>KDP publishing</span><span>Kids &amp; family</span></div>
             <div class="card-links"><a href="https://www.amazon.com/Travel-Time-Kids-Vacation-Journal/dp/B0H1HQ2VT9/" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK: Mega Math Digest (series bundle) -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/dp/B0HN7KZHCJ" target="_blank" rel="noopener" aria-label="View The Mega Math Digest on Amazon">
+              <img src="images/book-mega-math-digest.jpg" alt="The Mega Math Digest cover — 6 workbooks, 68 tricks and 680 problems in one book, ages 8+." loading="lazy" />
+            </a>
+            <div class="live-badge">Complete series</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>The Mega Math Digest</h3>
+            <p>The whole Quick Math Tricks series in one volume — all six workbooks bundled together: <strong>68 step-by-step tricks and 680 practice problems</strong> with full answer keys, covering addition, multiplication, division, fractions, percentages, squaring and cubing.</p>
+            <p class="award">📚 Six books in one · Built for Math Kangaroo, Math Olympiad, AMC, CML and school mental-math competitions.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/dp/B0HN7KZHCJ" target="_blank" rel="noopener">View on Amazon ↗</a></div>
           </div>
         </div>
 
@@ -1175,6 +1283,81 @@
             <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
             <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
             <div class="card-links"><a href="https://www.amazon.com/dp/B0HKHT5CGL" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- BOOK 9 -->
+        <div class="card reveal" data-cat="book">
+          <div class="preview shot-preview book-shot">
+            <a href="https://www.amazon.com/dp/B0HLLK2XJB" target="_blank" rel="noopener" aria-label="View Fraction Power on Amazon">
+              <img src="images/book-fraction-power.jpg"
+                   alt="Fraction Power workbook cover — Quick Math Tricks series, ages 8+, 9 tricks and 90 puzzles."
+                   loading="lazy"
+                   onerror="this.hidden=true;this.parentElement.querySelector('.book-tile').hidden=false;" />
+              <span class="book-tile" hidden>
+                <span class="bt-kicker">Quick Math Tricks · Ages 8+</span>
+                <span class="bt-title">Fraction<br>Power</span>
+                <span class="bt-nums"><b>9</b> tricks &nbsp;·&nbsp; <b>90</b> puzzles</span>
+              </span>
+            </a>
+            <div class="live-badge">On Amazon</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Math Workbook · Ages 8+</span>
+            <h3>Fraction Power</h3>
+            <p>Nine clever shortcuts to add, subtract, compare and simplify fractions in your head, with 90 practice puzzles and complete answer keys.</p>
+            <p class="award">✍️ Quick Math Tricks series · Great prep for Math Kangaroo, Math Olympiad, AMC and CML.</p>
+            <div class="stack"><span>Curriculum design</span><span>Interior layout</span><span>Cover design</span><span>Amazon KDP</span></div>
+            <div class="card-links"><a href="https://www.amazon.com/dp/B0HLLK2XJB" target="_blank" rel="noopener">View on Amazon ↗</a></div>
+          </div>
+        </div>
+
+        <!-- LEARN THE BASICS VIDEO -->
+        <div class="card reveal" data-cat="channel">
+          <div class="preview shot-preview" style="background:linear-gradient(150deg,#efeaff,var(--bg-soft));">
+            <a href="https://youtu.be/Rqd2SkPlOXA" target="_blank" rel="noopener" aria-label="Watch the Learn the Basics video on YouTube">
+              <img src="https://img.youtube.com/vi/Rqd2SkPlOXA/hqdefault.jpg"
+                   alt="Learn the Basics — AI and machine learning explained, video thumbnail." loading="lazy" />
+            </a>
+            <div class="live-badge">Watch now</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">Video · AI &amp; Machine Learning</span>
+            <h3>Learn the Basics — on video</h3>
+            <p>The Learn the Basics material brought to video: AI and machine learning explained in plain language for curious kids, parents and anyone starting from zero.</p>
+            <div class="stack"><span>Teaching</span><span>Video</span><span>AI &amp; ML</span><span>Script &amp; production</span></div>
+            <div class="card-links">
+              <a href="https://youtu.be/Rqd2SkPlOXA" target="_blank" rel="noopener">▶ Watch on YouTube ↗</a>
+              <a href="https://www.learnthebasics.org/" target="_blank" rel="noopener">Visit the site ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- YOUTUBE CHANNEL -->
+        <div class="card reveal" data-cat="channel">
+          <div class="preview shot-preview" style="background:linear-gradient(150deg,#fff6d9,#eaf4ff);">
+            <a href="https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg" target="_blank" rel="noopener" aria-label="Open the ELF YouTube channel">
+              <img src="images/elf-logo.png"
+                   alt="ELF — Entertainment, Learn, Fun. YouTube channel logo."
+                   loading="lazy"
+                   onerror="this.hidden=true;this.parentElement.querySelector('.elf-tile').hidden=false;" />
+              <span class="elf-tile" hidden>
+                <span class="elf-logo"><i>E</i><i>L</i><i>F</i></span>
+                <span class="elf-tag">Entertainment ★ Learn ★ Fun</span>
+                <span class="elf-play">▶ YouTube</span>
+              </span>
+            </a>
+            <div class="live-badge">Live — new video daily</div>
+          </div>
+          <div class="card-body">
+            <span class="kicker">YouTube Channel · ELF</span>
+            <h3>ELF — Entertainment, Learn, Fun</h3>
+            <p>My channel teaching the mental-math shortcuts from the Quick Math Tricks workbooks, plus beginner-friendly AI and machine learning explainers. <strong>15+ shorts live now</strong>, with a new AI &amp; ML video publishing every day.</p>
+            <div class="stack"><span>Teaching</span><span>Video &amp; shorts</span><span>Mental math</span><span>AI &amp; ML</span></div>
+            <div class="card-links">
+              <a href="https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg" target="_blank" rel="noopener">Visit channel ↗</a>
+              <a href="https://youtube.com/shorts/3aF8ASGAsq4" target="_blank" rel="noopener">Watch a short ↗</a>
+            </div>
           </div>
         </div>
 
@@ -1376,7 +1559,7 @@
         </details>
         <details class="faq reveal">
           <summary>What's your experience?</summary>
-          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and eight books published on Amazon. You can try all of them from the work section above.</p>
+          <p>I spent four years as a software developer at a multinational engineering company in India before moving to the USA. Since then I've shipped over ten live projects on my own: IntelliEats (rated 5.0★ on the App Store and live on Google Play), four websites, and ten books published on Amazon. You can try all of them from the work section above.</p>
         </details>
         <details class="faq reveal">
           <summary>How long will my project take?</summary>
@@ -1405,6 +1588,10 @@
           <a class="cm" href="mailto:snidmat20@gmail.com">
             <div class="ic">✉️</div>
             <div><b>Email</b><span>snidmat20@gmail.com</span></div>
+          </a>
+          <a class="cm" href="https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg" target="_blank" rel="noopener">
+            <div class="ic">▶</div>
+            <div><b>YouTube — ELF</b><span>Math tricks, AI &amp; ML · new video daily</span></div>
           </a>
           <a class="cm" href="https://www.linkedin.com/in/nidhi-matele-172b44191/" target="_blank" rel="noopener">
             <div class="ic">in</div>
@@ -1497,6 +1684,7 @@
     var WORK = [
       {c:"iOS & Android App", t:"IntelliEats",               u:"https://apps.apple.com/us/app/intellieats/id6744873855", img:"images/intellieats-app.jpg"},
       {c:"iOS & iPad App",    t:"BingoBEE: Educational Bingo", u:"https://apps.apple.com/us/app/bingobee-educational-bingo/id6773800946", img:"images/bingobee-poster.jpg"},
+      {c:"iPhone & iPad App", t:"TinySorts: Sort & Learn",      u:"https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456", img:"images/tinysorts-poster.jpg"},
       {c:"iPhone & iPad App", t:"RemindIQ",                  u:"https://apps.apple.com/us/app/remindiq/id6761721028", img:"images/remindiq-poster.jpg"},
       {c:"Website",  t:"intelieats.com",     u:"https://intelieats.com/",           l:"IE", bg:"linear-gradient(135deg,#2ec5d3,#f2e04a)"},
       {c:"Website",  t:"learnthebasics.org", u:"https://www.learnthebasics.org/",   img:"images/icon-learnthebasics.svg"},
@@ -1504,6 +1692,9 @@
       {c:"Website",  t:"yupnri.com",         u:"https://yupnri.com/",               img:"images/icon-yupnri.svg"},
       {c:"Book",     t:"Continuous Addition Tricks", u:"https://a.co/d/07Dznky8",    img:"images/book-addition-tricks.jpg"},
       {c:"Book",     t:"Division Tricks",            u:"https://a.co/d/0a5L3186",    img:"images/book-division-tricks.jpg"},
+      {c:"Book · Series bundle", t:"The Mega Math Digest", u:"https://www.amazon.com/dp/B0HN7KZHCJ", img:"images/book-mega-math-digest.jpg"},
+      {c:"Video · AI & ML", t:"Learn the Basics — on video", u:"https://youtu.be/Rqd2SkPlOXA", img:"https://img.youtube.com/vi/Rqd2SkPlOXA/hqdefault.jpg"},
+      {c:"Book",     t:"Fraction Power",              u:"https://www.amazon.com/dp/B0HLLK2XJB", l:"⅔", bg:"linear-gradient(150deg,#f7c948,#ffe9a8)"},
       {c:"Book",     t:"Multiplication Magic",       u:"https://www.amazon.com/dp/B0HKHT5CGL", img:"images/book-multiplication-magic.jpg"},
       {c:"Book",     t:"Squaring & Cubing",          u:"https://www.amazon.com/dp/B0HHQTYZFP", img:"images/book-squaring-cubing.jpg"},
       {c:"Book",     t:"Percentage Power",           u:"https://www.amazon.com/dp/B0HJ6GZ11S", img:"images/book-percentage-power.jpg"},

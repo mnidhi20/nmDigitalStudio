@@ -1,9 +1,9 @@
 # Nidhi Matele
 
 > Freelance software developer building websites, cross-platform iOS and Android
-> apps in Flutter, AI crawl optimization, and published books. Three apps live on the
-> App Store (IntelliEats, BingoBEE, RemindIQ) and 8 books on Amazon. Former software engineer at a multinational engineering company in India,
-> with 4 years professional experience. 15+ live projects
+> apps in Flutter, AI crawl optimization, and published books. Four apps live on the
+> App Store (IntelliEats, BingoBEE, RemindIQ, TinySorts) and 10 books on Amazon. Former software engineer at a multinational engineering company in India,
+> with 4 years professional experience. 19 live projects
 > shipped. Based in Michigan, USA — works with clients remotely worldwide.
 > Currently available for freelance work.
 
@@ -12,6 +12,7 @@
 - Email: snidmat20@gmail.com
 - WhatsApp: +1 616 610 7226
 - LinkedIn: https://www.linkedin.com/in/nidhi-matele-172b44191/
+- YouTube: https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg — ELF: Entertainment, Learn, Fun (math tricks, AI & ML)
 
 ## Services
 
@@ -63,16 +64,31 @@ price and timeline before work begins.
   breaks, event times and locations and turning them into reminders. Voice input,
   priority levels, quiet hours. No account, no cloud sync — fully on-device. Free,
   ages 4+. https://apps.apple.com/us/app/remindiq/id6761721028
+- **TinySorts: Sort & Learn** — iPhone and iPad app (Education). A sorting game with
+  300 levels across 30 topics for ages 2 to 10+: shapes, colours, animals and sizes for
+  the youngest, then math facts, spelling, grammar, geography and life science, up to
+  long division, pre-algebra, fractions, decimals, geometry, world history and financial
+  literacy. Children earn stars and XP, unlock robot buddies, and build a Robot Town and
+  Moon base. No ads, no in-app purchases. Free, ages 4+.
+  https://apps.apple.com/us/app/tinysorts-sort-learn/id6803122456
+  Website: https://mnidhi20.github.io/tinysorts-site/
 - **Learn the Basics** — https://www.learnthebasics.org/ — Kid-friendly website
   teaching AI, machine learning, neural networks and LLMs, with paid printable
   study material.
 - **BeVegToday** — https://bevegtoday.com/ — Vegetarian recipe platform.
 - **YupNri** — https://yupnri.com/ — Companion platform for Non-Resident Indians:
   live exchange rates, news, calculators and community.
-- **Books on Amazon** (written, designed and self-published — 8 titles). The five
+- **Books on Amazon** (written, designed and self-published — 10 titles). The six individual
   Quick Math Tricks workbooks are a mental-math series for children, co-authored with
   Lakhith Matele, each teaching shortcuts step by step with practice puzzles and full
   answer keys:
+  - The Mega Math Digest — the complete Quick Math Tricks series in one volume. Ages 8+:
+    all 6 workbooks bundled, 68 step-by-step tricks and 680 practice problems with full
+    answer keys (addition, multiplication, division, fractions, percentages, squaring and
+    cubing). https://www.amazon.com/dp/B0HN7KZHCJ
+  - Fraction Power — Quick Math Tricks. Ages 8+: 9 clever shortcuts to add, subtract, compare
+    and simplify fractions mentally, 90 practice puzzles, full answer keys.
+    https://www.amazon.com/dp/B0HLLK2XJB
   - Multiplication Magic — Quick Math Tricks. Ages 8+: 15 lightning tricks for
     multiplying big numbers mentally, 150 practice puzzles, full answer keys.
     https://www.amazon.com/dp/B0HKHT5CGL
@@ -95,6 +111,10 @@ price and timeline before work begins.
   - Epic Travel Adventure Journal for Kids: https://www.amazon.com/dp/B0H236ZRKG
   - Travel Time — Kids Vacation Journal: https://www.amazon.com/dp/B0H1HQ2VT9
 - Two further mobile apps currently in development.
+- **ELF (Entertainment, Learn, Fun) — YouTube channel** — teaching the mental-math
+  shortcuts from the Quick Math Tricks workbooks plus beginner-friendly AI and machine
+  learning explainers. 15+ shorts published, with a new AI & ML video daily.
+  https://www.youtube.com/channel/UCjkAgnpLpgzGK5lW7zeLoWg
 
 ## Skills
 
